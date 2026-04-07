@@ -217,6 +217,35 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 			}
 /*# sourceURL=wpforms-modern-full-inline-css */
 </style>
+
+<style id="nomad-layout-fix">
+  /* Force services section side by side */
+  #services.vc_row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    width: 100% !important;
+  }
+  #services .bg-left {
+    display: block !important;
+    float: none !important;
+    width: 40% !important;
+    min-width: 40% !important;
+    flex: 0 0 40% !important;
+  }
+  #services .column-style-2 {
+    display: block !important;
+    float: none !important;
+    width: 60% !important;
+    min-width: 60% !important;
+    flex: 0 0 60% !important;
+  }
+  @media (max-width: 767px) {
+    #services.vc_row { flex-direction: column !important; }
+    #services .bg-left, #services .column-style-2 { width: 100% !important; min-width: 100% !important; }
+  }
+</style>
 </head>
 
 <body data-rsssl=1 class="home wp-singular page-template-default page page-id-36 wp-theme-enzio wpb-js-composer js-comp-ver-7.9 vc_responsive">
@@ -413,7 +442,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 				resetTimer();
 			</script>
 			<!-- END NOMAD HERO SLIDER -->
-</div></div></div></div></div><div class="vc_wpb_row_inner  "><div id="services" class="vc_row wpb_row vc_row-fluid row-fullwidth vc_row-o-equal-height vc_row-o-content-middle vc_row-flex" style="display:flex !important;flex-wrap:nowrap;align-items:stretch;width:100%;"><div class="bg-left wpb_column vc_column_container vc_col-sm-4 vc_col-lg-5 vc_col-md-5 hidden-xs vc_col-has-fill" style="width:40% !important;float:none !important;flex:0 0 40%;"><div class="vc_column-inner vc_custom_1627324767634"><div class="wpb_wrapper"><div class="wpb_gallery wpb_content_element vc_clearfix wpb_content_element" ><div class="wpb_wrapper"><div class="wpb_gallery_slides wpb_flexslider flexslider_fade flexslider" data-interval="3" data-flex_fx="fade"><ul class="slides"><li><img fetchpriority="high" decoding="async" width="518" height="582" src="wp-content/uploads/2018/07/image-8.png" class="attachment-full" alt="" title="image-8" /></li></ul></div></div></div></div></div></div></div></div><div class="column-style-2 wpb_column vc_column_container vc_col-sm-8 vc_col-lg-7 vc_col-md-7" style="width:60% !important;float:none !important;flex:0 0 60%;"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
+</div></div></div></div></div><div class="vc_wpb_row_inner  "><div id="services" class="vc_row wpb_row vc_row-fluid row-fullwidth vc_row-o-equal-height vc_row-o-content-middle vc_row-flex"><div class="bg-left wpb_column vc_column_container vc_col-sm-4 vc_col-lg-5 vc_col-md-5 hidden-xs vc_col-has-fill"><div class="vc_column-inner vc_custom_1627324767634"><div class="wpb_wrapper"><div class="wpb_gallery wpb_content_element vc_clearfix wpb_content_element" ><div class="wpb_wrapper"><div class="wpb_gallery_slides wpb_flexslider flexslider_fade flexslider" data-interval="3" data-flex_fx="fade"><ul class="slides"><li><img fetchpriority="high" decoding="async" width="518" height="582" src="wp-content/uploads/2018/07/image-8.png" class="attachment-full" alt="" title="image-8" /></li></ul></div></div></div></div></div></div></div></div><div class="column-style-2 wpb_column vc_column_container vc_col-sm-8 vc_col-lg-7 vc_col-md-7"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
 <div class="widget gsc-heading  align-left style-2 text-dark">
       <h1 class="title"><span>Our Services</span></h1>   <div class="line"><span></span></div>
    <div class="title-desc">With Nomad CTS you can enhance your business and your customers experience like never before.</div></div>
