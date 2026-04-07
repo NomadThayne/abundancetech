@@ -859,7 +859,7 @@
           <h3>Company</h3>
           <ul>
             <li>
-              <a href="nomad-privacy-policy-2026.pdf"
+              <a href="privacy-policy.html"
                  target="_blank" rel="noopener">Privacy Policy</a>
             </li>
           </ul>
@@ -910,7 +910,8 @@
     </div>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
     // ── Hero slider ────────────────────────────────────
     var cur = 0;
     var slides = document.querySelectorAll('.hero-slide');
@@ -992,4 +993,8 @@
         btn.disabled = false;
       }
     });
-  
+  }); // end DOMContentLoaded
+  </script>
+
+</body>
+</html>
