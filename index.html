@@ -859,7 +859,7 @@
           <h3>Company</h3>
           <ul>
             <li>
-              <a href="wp-content/uploads/2015/12/nomad-privacy-policy-2026.pdf"
+              <a href="nomad-privacy-policy-2026.pdf"
                  target="_blank" rel="noopener">Privacy Policy</a>
             </li>
           </ul>
@@ -887,7 +887,7 @@
     <div class="popup-box">
       <button class="popup-close" onclick="closePopup()" aria-label="Close">&times;</button>
       <h3>Contact Nomad CTS</h3>
-      <form action="https://formspree.io/f/mojpbaqz" method="POST">
+      <form id="contactForm" action="https://formspree.io/f/mojpbaqz" method="POST">
         <div class="form-field">
           <label for="cf-name">Company or Name <span style="color:#e00">*</span></label>
           <input type="text" id="cf-name" name="name" required>
@@ -904,7 +904,8 @@
           <label for="cf-msg">Message <span style="color:#e00">*</span></label>
           <textarea id="cf-msg" name="message" required></textarea>
         </div>
-        <button type="submit" class="form-submit">Send Message</button>
+        <div id="form-status" style="display:none; margin-top:12px; padding:12px 16px; border-radius:4px; font-size:15px;"></div>
+        <button type="submit" class="form-submit" id="form-submit-btn">Send Message</button>
       </form>
     </div>
   </div>
@@ -953,4 +954,42 @@
       if (e.key === 'Escape') closePopup();
     });
 
-    // ── Newsletter ─────────────────────
+    // ── Newsletter ─────────────────────────────────────
+    function handleNewsletter() {
+      var email = document.getElementById('nlEmail').value.trim();
+      if (email) alert('Thank you for subscribing!');
+    }
+
+    // ── Contact form — async Formspree submission ───────
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var btn    = document.getElementById('form-submit-btn');
+      var status = document.getElementById('form-status');
+      btn.disabled = true;
+      btn.textContent = 'Sending\u2026';
+      status.style.display = 'none';
+
+      try {
+        var response = await fetch('https://formspree.io/f/mojpbaqz', {
+          method: 'POST',
+          body: new FormData(this),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          status.style.cssText = 'display:block;margin-top:12px;padding:12px 16px;border-radius:4px;font-size:15px;background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;';
+          status.textContent = 'Thank you! Your message has been sent. We\u2019ll be in touch shortly.';
+          this.reset();
+          btn.textContent = 'Message Sent!';
+          setTimeout(function() { closePopup(); }, 3000);
+        } else {
+          throw new Error('failed');
+        }
+      } catch(err) {
+        status.style.cssText = 'display:block;margin-top:12px;padding:12px 16px;border-radius:4px;font-size:15px;background:#ffebee;color:#c62828;border:1px solid #ef9a9a;';
+        status.textContent = 'Sorry, something went wrong. Please email us at info@nomadcts.com';
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+      }
+    });
+  
