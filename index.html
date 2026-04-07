@@ -855,11 +855,13 @@
 
         <div class="footer-widget">
           <h3>Newsletter</h3>
-          <div class="newsletter-form">
+          <form class="newsletter-form" id="newsletterForm">
             <p>Stay up to date with the latest from Nomad</p>
-            <input type="email" id="nlEmail" placeholder="Enter E-Mail Address" />
-            <button onclick="handleNewsletter()">Subscribe</button>
-          </div>
+            <input type="email" id="nlEmail" name="email" placeholder="Enter E-Mail Address" required />
+            <input type="hidden" name="source" value="newsletter" />
+            <button type="submit" id="nlBtn">Subscribe</button>
+            <div id="nl-status" style="display:none; margin-top:8px; font-size:13px; border-radius:4px; padding:8px 12px;"></div>
+          </form>
         </div>
 
         <div class="footer-widget"></div>
@@ -964,10 +966,38 @@
     });
 
     // ── Newsletter ─────────────────────────────────────
-    function handleNewsletter() {
-      var email = document.getElementById('nlEmail').value.trim();
-      if (email) alert('Thank you for subscribing!');
-    }
+    document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var btn    = document.getElementById('nlBtn');
+      var status = document.getElementById('nl-status');
+      var email  = document.getElementById('nlEmail').value.trim();
+      if (!email) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Subscribing…';
+
+      try {
+        var response = await fetch('https://formspree.io/f/mojpbaqz', {
+          method: 'POST',
+          body: new FormData(this),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          status.style.cssText = 'display:block;background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;';
+          status.textContent = 'Thanks! You’re subscribed.';
+          this.reset();
+          btn.textContent = 'Subscribed!';
+        } else {
+          throw new Error('failed');
+        }
+      } catch(err) {
+        status.style.cssText = 'display:block;background:#ffebee;color:#c62828;border:1px solid #ef9a9a;';
+        status.textContent = 'Something went wrong. Please try again.';
+        btn.textContent = 'Subscribe';
+        btn.disabled = false;
+      }
+    });
 
     // ── Contact form — async Formspree submission ───────
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
