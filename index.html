@@ -48,6 +48,36 @@
 .vc_custom_1627324767634{background-image: url(https://nomadcts.com/wp-content/uploads/2018/07/bg-laptop.png) !important;}
 .vc_custom_1531818065940{padding-top: 30px !important;}
 .vc_custom_1530601576575{padding-top: 50px !important;}
+
+/* ── Services section: force two columns side by side ── */
+#services.vc_row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: stretch !important;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+#services .bg-left {
+  flex: 0 0 41.6667% !important;  /* matches vc_col-lg-5 (5/12) */
+  max-width: 41.6667% !important;
+  display: block !important;
+  float: none !important;
+  box-sizing: border-box;
+  min-height: 500px;
+}
+#services .column-style-2 {
+  flex: 0 0 58.3333% !important;  /* matches vc_col-lg-7 (7/12) */
+  max-width: 58.3333% !important;
+  display: block !important;
+  float: none !important;
+  box-sizing: border-box;
+}
+@media (max-width: 767px) {
+  #services.vc_row { flex-direction: column !important; }
+  #services .bg-left,
+  #services .column-style-2 { flex: 0 0 100% !important; max-width: 100% !important; }
+}
 </style>
 
 <style id="wpforms-modern-full-inline-css" type="text/css">
@@ -678,7 +708,7 @@
                       <h2 class="widgettitle">Contact Us</h2>
                       <div class="textwidget">
                         <ul>
-                          <li><a href="mailto:info@nomadcts.com">info@nomadcts.com</a></li>
+                          <li><a href="/cdn-cgi/l/email-protection#462f2820290628292b27222532356825292b"><span class="__cf_email__" data-cfemail="dbb2b5bdb49bb5b4b6babfb8afa8f5b8b4b6">[email&#160;protected]</span></a></li>
                         </ul>
                       </div>
                     </div>
@@ -804,8 +834,4 @@
     </div>
   </div>
 
-  <script type="text/javascript" src="wp-content/plugins/js_composer/assets/lib/vendor/node_modules/flexslider/jquery.flexslider-min7035.js?ver=7.9" id="wpb_flexslider-js"></script>
-  <script type="text/javascript" src="wp-content/plugins/popup-maker/assets/js/site/popup-maker.min.js" id="popup-maker-site-js"></script>
-
-</body>
-</html>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="wp-content/plugins/js_composer/assets/lib/vendor/node_modules
