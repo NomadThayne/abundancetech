@@ -208,21 +208,26 @@
     /* ── SERVICES ───────────────────────────────────── */
     .services-row {
       display: flex;
-      align-items: stretch;
+      align-items: center;
       width: 100%;
-      min-height: 580px;
     }
     .services-image-col {
       flex: 0 0 42%;
       position: relative;
+      background: #f5f5f5;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
       overflow: hidden;
-      background: #eee;
+      align-self: stretch;
     }
     .services-image-col img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
+      max-width: 520px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      object-position: bottom center;
     }
     .services-content-col {
       flex: 1;
