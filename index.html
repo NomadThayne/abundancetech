@@ -17,7 +17,7 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Roboto', sans-serif;
-      font-size: 17px;
+      font-size: 19px;
       color: #555;
       line-height: 1.7;
       background: #fff;
@@ -47,7 +47,7 @@
     .main-nav { display: flex; gap: 36px; align-items: center; }
     .main-nav a {
       font-family: 'Poppins', sans-serif;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 500;
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -148,7 +148,7 @@
     .hero-title {
       color: #fff;
       font-family: 'Poppins', sans-serif;
-      font-size: 64px;
+      font-size: 72px;
       font-weight: 800;
       line-height: 1.08;
       margin-bottom: 32px;
@@ -188,7 +188,7 @@
     .slider-dot.active { background: #000; border-color: #fff; }
     @media (max-width: 767px) {
       .hero-slider { height: 480px; }
-      .hero-title { font-size: 34px; }
+      .hero-title { font-size: 40px; }
       .hero-content {
         left: 20px !important;
         bottom: 90px;
@@ -208,58 +208,54 @@
     /* ── SERVICES ───────────────────────────────────── */
     .services-row {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       width: 100%;
       max-width: 1400px;
       margin: 0 auto;
     }
     .services-image-col {
       flex: 0 0 42%;
-      position: relative;
       background: #fff;
       display: flex;
       align-items: flex-end;
       justify-content: center;
       overflow: hidden;
-      align-self: stretch;
     }
     .services-image-col img {
       width: 100%;
-      max-width: 520px;
-      height: auto;
-      display: block;
+      height: 100%;
       object-fit: contain;
       object-position: bottom center;
     }
     .services-content-col {
       flex: 1;
-      padding: 60px 56px 60px 64px;
+      padding: 72px 64px 72px 72px;
       background: #fff;
       overflow-y: auto;
     }
     .section-heading { margin-bottom: 32px; }
     .section-heading h2 {
       font-family: 'Poppins', sans-serif;
-      font-size: 36px;
+      font-size: 42px;
       font-weight: 700;
       color: #222;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
-    .section-heading p { font-size: 17px; color: #666; line-height: 1.75; }
+    .section-heading p { font-size: 19px; color: #666; line-height: 1.75; }
     .services-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px 40px;
+      gap: 40px 48px;
     }
     .service-item { display: flex; gap: 16px; align-items: flex-start; }
     .service-icon {
       flex-shrink: 0;
-      width: 64px; height: 64px;
+      width: 72px; height: 72px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 26px;
+      font-size: 30px;
     }
     .icon-orange { background: #FDEFEC; color: #f0927a; }
     .icon-green  { background: #E5FAF5; color: #45D3A8; }
@@ -268,15 +264,15 @@
     .service-text { padding-top: 4px; }
     .service-text h4 {
       font-family: 'Poppins', sans-serif;
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 700;
       letter-spacing: 0.6px;
       text-transform: uppercase;
       color: #222;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       line-height: 1.4;
     }
-    .service-text p { font-size: 16px; color: #777; line-height: 1.7; }
+    .service-text p { font-size: 18px; color: #777; line-height: 1.75; }
     @media (max-width: 900px) {
       .services-row { flex-direction: column; }
       .services-image-col { flex: none; height: 300px; }
@@ -297,12 +293,12 @@
     }
     .expertise-intro h2 {
       font-family: 'Poppins', sans-serif;
-      font-size: 32px;
+      font-size: 38px;
       font-weight: 700;
       color: #222;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
-    .expertise-intro p { font-size: 16px; color: #666; line-height: 1.8; }
+    .expertise-intro p { font-size: 18px; color: #666; line-height: 1.8; }
     .expertise-intro p + p { margin-top: 12px; }
     .expertise-card {
       background: #fff;
@@ -319,12 +315,12 @@
     .expertise-card-body { padding: 16px 18px 20px; }
     .expertise-card-body h3 {
       font-family: 'Poppins', sans-serif;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 600;
       color: #222;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
-    .expertise-card-body p { font-size: 15px; color: #777; line-height: 1.65; }
+    .expertise-card-body p { font-size: 17px; color: #777; line-height: 1.7; }
     @media (max-width: 900px) {
       .expertise-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -347,10 +343,10 @@
     .pm-content { flex: 1; padding-bottom: 60px; }
     .pm-content h2 {
       font-family: 'Poppins', sans-serif;
-      font-size: 32px;
+      font-size: 38px;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 40px;
+      margin-bottom: 44px;
     }
     .pm-features {
       display: grid;
@@ -360,19 +356,19 @@
     .pm-feature { display: flex; align-items: center; gap: 14px; }
     .pm-feature-icon {
       flex-shrink: 0;
-      width: 48px; height: 48px;
+      width: 56px; height: 56px;
       background: #fff;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
+      font-size: 22px;
       color: #4385f5;
       box-shadow: 0 3px 10px rgba(0,0,0,0.15);
     }
     .pm-feature-title {
       font-family: 'Poppins', sans-serif;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 600;
       color: #fff;
       line-height: 1.4;
@@ -396,14 +392,14 @@
     }
     .footer-widget h3 {
       font-family: 'Poppins', sans-serif;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 600;
       color: #fff;
       text-transform: uppercase;
       letter-spacing: 0.8px;
       margin-bottom: 18px;
     }
-    .footer-widget a { color: #aaa; font-size: 16px; transition: color 0.2s; }
+    .footer-widget a { color: #aaa; font-size: 17px; transition: color 0.2s; }
     .footer-widget a:hover { color: #f76c2f; }
     .footer-widget li { margin-bottom: 8px; }
     .newsletter-form p { font-size: 13px; color: #888; margin-bottom: 10px; }
@@ -440,7 +436,7 @@
       flex-wrap: wrap;
       gap: 12px;
     }
-    .footer-copyright { font-size: 14px; color: #666; }
+    .footer-copyright { font-size: 15px; color: #666; }
     .footer-socials { display: flex; gap: 10px; }
     .footer-socials a {
       width: 34px; height: 34px;
