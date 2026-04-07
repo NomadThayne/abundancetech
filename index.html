@@ -226,8 +226,9 @@
     }
     .services-content-col {
       flex: 1;
-      padding: 52px 48px 52px 52px;
+      padding: 48px 48px 48px 52px;
       background: #fff;
+      overflow-y: auto;
     }
     .section-heading { margin-bottom: 32px; }
     .section-heading h2 {
@@ -239,27 +240,28 @@
     }
     .section-heading p { font-size: 15px; color: #666; line-height: 1.7; }
     .services-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
-    .service-item { display: flex; gap: 16px; align-items: flex-start; }
+    .service-item { display: flex; gap: 20px; align-items: flex-start; }
     .service-icon {
       flex-shrink: 0;
-      width: 52px; height: 52px;
+      width: 64px; height: 64px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
+      font-size: 26px;
     }
-    .icon-orange { background: #FDEFEC; color: #FEB1A2; }
+    .icon-orange { background: #FDEFEC; color: #f0927a; }
     .icon-green  { background: #E5FAF5; color: #45D3A8; }
     .icon-blue   { background: #EAF0FE; color: #6B8EEF; }
     .icon-purple { background: #F5ECFD; color: #B17EF0; }
+    .service-text { padding-top: 4px; }
     .service-text h4 {
       font-family: 'Poppins', sans-serif;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
       letter-spacing: 0.6px;
       text-transform: uppercase;
@@ -267,7 +269,7 @@
       margin-bottom: 6px;
       line-height: 1.4;
     }
-    .service-text p { font-size: 13px; color: #777; line-height: 1.65; }
+    .service-text p { font-size: 14px; color: #777; line-height: 1.65; }
     @media (max-width: 900px) {
       .services-row { flex-direction: column; }
       .services-image-col { flex: none; height: 300px; }
@@ -611,7 +613,7 @@
         <div class="services-grid">
 
           <div class="service-item">
-            <div class="service-icon icon-orange"><i class="fa fa-credit-card"></i></div>
+            <div class="service-icon icon-orange"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><line x1="6" y1="15" x2="9" y2="15"/><line x1="12" y1="15" x2="16" y2="15"/></svg></div>
             <div class="service-text">
               <h4>Payments Manager Administration</h4>
               <p>We provide our own platform (Branded with your Company) for Issuance and management of prepaid cards (multi-currency), with Pay-In and Pay-Out management.</p>
@@ -619,7 +621,7 @@
           </div>
 
           <div class="service-item">
-            <div class="service-icon icon-green"><i class="fa fa-exchange"></i></div>
+            <div class="service-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
             <div class="service-text">
               <h4>Pay-In/Out Services</h4>
               <p>Manage over 150 payment methods, including credit cards, prepaid cards, mobile, cash vouchers, bank transfers, e-wallets, country specific services, P2P and ATM.</p>
@@ -627,7 +629,7 @@
           </div>
 
           <div class="service-item">
-            <div class="service-icon icon-blue"><i class="fa fa-money"></i></div>
+            <div class="service-icon icon-blue"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/><path d="M21 12h-5a2 2 0 0 0 0 4h5"/></svg></div>
             <div class="service-text">
               <h4>E-Wallet</h4>
               <p>Consumer/Agent wallets with the ability to control their ideal pay-in and pay-out preferences.</p>
@@ -635,7 +637,7 @@
           </div>
 
           <div class="service-item">
-            <div class="service-icon icon-purple"><i class="fa fa-credit-card-alt"></i></div>
+            <div class="service-icon icon-purple"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><rect x="5" y="9" width="4" height="4" rx="1"/><line x1="1" y1="10" x2="5" y2="10"/><line x1="9" y1="10" x2="9" y2="13"/></svg></div>
             <div class="service-text">
               <h4>Prepaid Card Issuance</h4>
               <p>Integrated prepaid cards to serve consumers/agents globally, not just in the US market.</p>
@@ -643,7 +645,7 @@
           </div>
 
           <div class="service-item">
-            <div class="service-icon icon-orange"><i class="fa fa-line-chart"></i></div>
+            <div class="service-icon icon-orange"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
             <div class="service-text">
               <h4>Payment Consulting</h4>
               <p>Our specialists have extensive experience in payments around the world, having helped companies increase revenues, reduce costs, and become more efficient.</p>
@@ -651,7 +653,7 @@
           </div>
 
           <div class="service-item">
-            <div class="service-icon icon-green"><i class="fa fa-code"></i></div>
+            <div class="service-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
             <div class="service-text">
               <h4>Technology Design, Development &amp; Support</h4>
               <p>Our technology and design team provides cost-effective and time-critical solutions to support your business and its payment requirements.</p>
@@ -718,32 +720,32 @@
           <div class="pm-features">
 
             <div class="pm-feature">
-              <div class="pm-feature-icon"><i class="fa fa-line-chart"></i></div>
+              <div class="pm-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
               <div class="pm-feature-title">Boost your Revenue</div>
             </div>
 
             <div class="pm-feature">
-              <div class="pm-feature-icon"><i class="fa fa-exchange"></i></div>
+              <div class="pm-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
               <div class="pm-feature-title">Manage your 150+ Payment Methods</div>
             </div>
 
             <div class="pm-feature">
-              <div class="pm-feature-icon"><i class="fa fa-credit-card-alt"></i></div>
+              <div class="pm-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><rect x="5" y="9" width="4" height="4" rx="1"/></svg></div>
               <div class="pm-feature-title">Issuance &amp; Management of Prepaid Cards, Domestic and International</div>
             </div>
 
             <div class="pm-feature">
-              <div class="pm-feature-icon"><i class="fa fa-shield"></i></div>
+              <div class="pm-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
               <div class="pm-feature-title">PCI DSS Compliance</div>
             </div>
 
             <div class="pm-feature">
-              <div class="pm-feature-icon"><i class="fa fa-bar-chart"></i></div>
+              <div class="pm-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
               <div class="pm-feature-title">Flexible Reporting</div>
             </div>
 
             <div class="pm-feature">
-              <div class="pm-feature-icon"><i class="fa fa-globe"></i></div>
+              <div class="pm-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
               <div class="pm-feature-title">Truly Global</div>
             </div>
 
@@ -766,7 +768,7 @@
         <div class="footer-widget">
           <h3>Contact Us</h3>
           <ul>
-            <li><a href="mailto:info@nomadcts.com">info@nomadcts.com</a></li>
+            <li><a href="/cdn-cgi/l/email-protection#60090e060f200e0f0d01040314134e030f0d"><span class="__cf_email__" data-cfemail="f59c9b939ab59b9a989491968186db969a98">[email&#160;protected]</span></a></li>
           </ul>
         </div>
 
@@ -835,7 +837,7 @@
     </div>
   </div>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ── Hero slider ────────────────────────────────────
     var cur = 0;
     var slides = document.querySelectorAll('.hero-slide');
@@ -879,12 +881,4 @@
       if (e.key === 'Escape') closePopup();
     });
 
-    // ── Newsletter ─────────────────────────────────────
-    function handleNewsletter() {
-      var email = document.getElementById('nlEmail').value.trim();
-      if (email) alert('Thank you for subscribing!');
-    }
-  </script>
-
-</body>
-</html>
+    // ── Newsletter ─────────────────────
