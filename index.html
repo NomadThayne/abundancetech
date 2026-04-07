@@ -245,11 +245,11 @@
     }
     .section-heading p { font-size: 15px; color: #666; line-height: 1.7; }
     .services-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px 40px;
     }
-    .service-item { display: flex; gap: 20px; align-items: flex-start; }
+    .service-item { display: flex; gap: 16px; align-items: flex-start; }
     .service-icon {
       flex-shrink: 0;
       width: 64px; height: 64px;
