@@ -333,87 +333,227 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
          
         
         <div class="wpb-content-wrapper"><div class="vc_wpb_row_inner  "><div class="vc_row wpb_row vc_row-fluid remove_padding row-fullwidth"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
-			<!-- NOMAD HERO SLIDER - replaces RevSlider -->
-			<style>
-				.nomad-slider { position: relative; width: 100%; height: 800px; overflow: hidden; }
-				.nomad-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out; pointer-events: none; }
-				.nomad-slide.active { opacity: 1; pointer-events: auto; }
-				.nomad-slide-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center center; }
-				.nomad-slide.active .nomad-slide-bg { animation: kenburns 10s ease-out forwards; }
-				@keyframes kenburns { 0% { transform: scale(1.0); } 100% { transform: scale(1.09); } }
-				.nomad-slide-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.38); }
-				.nomad-slide-content { position: absolute; bottom: 200px; left: 60px; z-index: 10; font-family: 'Poppins', sans-serif; }
-				.nomad-slide-3 .nomad-slide-content { left: 50%; transform: translateX(-50%); text-align: center; white-space: nowrap; }
-				.nomad-hero-label { display: inline-block; background: rgba(255,255,255,0.85); color: #0a0202; font-size: 16px; font-weight: 500; text-transform: uppercase; padding: 2px 10px; margin-bottom: 14px; }
-				.nomad-hero-title { color: #fff; font-size: 62px; font-weight: 800; line-height: 1.05; margin: 0 0 30px 0; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
-				.nomad-hero-btn { display: inline-block; background: rgba(67,133,245,1); color: #fff; font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; padding: 12px 35px; border-radius: 30px; transition: background 0.3s, color 0.3s; }
-				.nomad-hero-btn:hover { background: #fff; color: #000; }
-				.nomad-slider-dots { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 20; }
-				.nomad-slider-dot { width: 13px; height: 13px; border-radius: 50%; border: 5px solid #000; background: #fff; box-sizing: border-box; cursor: pointer; transition: all 0.3s; }
-				.nomad-slider-dot.active { background: #000; border-color: #fff; }
-				@media (max-width: 768px) {
-					.nomad-slider { height: 500px; }
-					.nomad-hero-title { font-size: 32px; }
-					.nomad-slide-content { left: 20px !important; bottom: 100px; transform: none !important; white-space: normal !important; text-align: left !important; }
-				}
-			</style>
-			<div class="nomad-slider" id="nomadSlider">
-				<div class="nomad-slide active">
-					<div class="nomad-slide-bg" style="background-image: url('wp-content/uploads/revslider/slider-1-1.jpg');"></div>
-					<div class="nomad-slide-overlay"></div>
-					<div class="nomad-slide-content">
-						<div class="nomad-hero-label">Welcome to Nomad</div>
-						<h2 class="nomad-hero-title">The premier<br>global solution<br>for serious business owners.</h2>
-						<a href="https://calendly.com/nomadcts" target="_blank" rel="noopener" class="nomad-hero-btn">Free Consultation</a>
-					</div>
-				</div>
-				<div class="nomad-slide">
-					<div class="nomad-slide-bg" style="background-image: url('wp-content/uploads/revslider/slider-2-1.jpg');"></div>
-					<div class="nomad-slide-overlay"></div>
-					<div class="nomad-slide-content">
-						<div class="nomad-hero-label">Welcome to Nomad</div>
-						<h2 class="nomad-hero-title">Over 150+ Payment methods<br>for your Business</h2>
-						<a href="https://calendly.com/nomadcts" target="_blank" rel="noopener" class="nomad-hero-btn">Free Consultation</a>
-					</div>
-				</div>
-				<div class="nomad-slide nomad-slide-3">
-					<div class="nomad-slide-bg" style="background-image: url('wp-content/uploads/revslider/slider-3.jpg');"></div>
-					<div class="nomad-slide-overlay"></div>
-					<div class="nomad-slide-content">
-						<div class="nomad-hero-label">Welcome to Nomad</div>
-						<h2 class="nomad-hero-title">You control your Funds</h2>
-						<a href="https://calendly.com/nomadcts" target="_blank" rel="noopener" class="nomad-hero-btn">Free Consultation</a>
-					</div>
-				</div>
-				<div class="nomad-slider-dots">
-					<div class="nomad-slider-dot active" onclick="goToSlide(0)"></div>
-					<div class="nomad-slider-dot" onclick="goToSlide(1)"></div>
-					<div class="nomad-slider-dot" onclick="goToSlide(2)"></div>
-				</div>
-			</div>
-			<script>
-				var nomadCurrent = 0;
-				var nomadSlides = document.querySelectorAll('#nomadSlider .nomad-slide');
-				var nomadDots = document.querySelectorAll('#nomadSlider .nomad-slider-dot');
-				var nomadTimer;
-				function goToSlide(n) {
-					nomadSlides[nomadCurrent].classList.remove('active');
-					nomadDots[nomadCurrent].classList.remove('active');
-					nomadCurrent = n;
-					nomadSlides[nomadCurrent].classList.add('active');
-					nomadDots[nomadCurrent].classList.add('active');
-					var bg = nomadSlides[nomadCurrent].querySelector('.nomad-slide-bg');
-					bg.style.animation = 'none';
-					bg.offsetHeight;
-					bg.style.animation = '';
-					resetTimer();
-				}
-				function nextSlide() { goToSlide((nomadCurrent + 1) % nomadSlides.length); }
-				function resetTimer() { clearInterval(nomadTimer); nomadTimer = setInterval(nextSlide, 9000); }
-				resetTimer();
-			</script>
-			<!-- END NOMAD HERO SLIDER -->
-</div></div></div></div></div><div class="vc_wpb_row_inner  "><div id="services" class="vc_row wpb_row vc_row-fluid row-fullwidth vc_row-o-equal-height vc_row-o-content-middle vc_row-flex"><div class="column-style-2 float-right wpb_column vc_column_container vc_col-sm-8 vc_col-lg-7 vc_col-md-7"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
+			<!-- START slider 1 REVOLUTION SLIDER 6.7.18 --><p class="rs-p-wp-fix"></p>
+			<rs-module-wrap id="rev_slider_1_1_wrapper" data-source="gallery" style="visibility:hidden;background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
+				<rs-module id="rev_slider_1_1" style="" data-version="6.7.18">
+					<rs-slides style="overflow: hidden; position: absolute;">
+						<rs-slide style="position: absolute;" data-key="rs-1" data-title="Slide" data-thumb="//nomadcts.com/media/revslider/slider-1-1.jpg" data-anim="adpr:false;" data-in="o:0;" data-out="a:false;">
+							<img decoding="async" src="wp-content/plugins/revslider/sr6/assets/assets/dummy.png" alt="" title="Home 1" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="//nomadcts.com/media/revslider/slider-1-1.jpg" data-panzoom="d:10000;ss:100;se:109;" data-no-retina>
+<!--
+							--><rs-layer
+								id="slider-1-slide-1-layer-3" 
+								data-type="text"
+								data-color="rgba(255, 255, 255, 1)"
+								data-rsp_ch="on"
+								data-xy="x:10px;y:277px;"
+								data-text="s:68;l:69;ls:0px;fw:800;"
+								data-frame_0="y:50px;"
+								data-frame_1="e:power2.inOut;st:260;sp:380;sR:260;"
+								data-frame_999="y:-50px;o:0;e:nothing;st:w;sR:8360;"
+								style="z-index:8;font-family:'Poppins';"
+							>The premier <br>
+global solution <br>
+for serious business owners. 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-1-slide-1-layer-4" 
+								data-type="text"
+								data-color="rgba(255, 255, 255, 1)"
+								data-rsp_ch="on"
+								data-xy="x:10px;y:434px;"
+								data-text="s:18;l:32;ls:0px;"
+								data-vbility="f,f,f,f"
+								data-frame_0="y:50px;"
+								data-frame_1="e:power2.inOut;st:910;sp:420;sR:910;"
+								data-frame_999="y:-50px;o:0;e:nothing;st:w;sR:7670;"
+								style="z-index:10;font-family:'Poppins';"
+							> We are a global branding agency helping companies to communicate <br> through vision and imagination. 
+							</rs-layer><!--
+
+							--><a
+								id="slider-1-slide-1-layer-6" 
+								class="rs-layer rev-btn"
+								href="../calendly.com/nomadcts.html" target="_blank" rel="noopener"
+								data-type="button"
+								data-color="rgba(255, 255, 255, 1)"
+								data-xy="x:10px;y:513px;"
+								data-text="s:12;l:14;ls:1px;fw:600;"
+								data-vbility="f,f,f,f"
+								data-rsp_bd="off"
+								data-padding="t:12;r:35;b:12;l:35;"
+								data-border="bor:30px,30px,30px,30px;"
+								data-frame_0="y:50px;"
+								data-frame_1="e:power2.inOut;st:1330;sp:390;sR:1330;"
+								data-frame_999="y:-50px;o:0;e:nothing;st:w;sR:7280;"
+								data-frame_hover="c:#000;bgc:#fff;boc:#000;bor:30px,30px,30px,30px;bos:solid;oX:50;oY:50;sp:0;e:none;"
+								style="z-index:11;background-color:rgba(67,133,245,1);font-family:'Poppins';text-transform:uppercase;cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"
+							>Free Consultation 
+							</a><!--
+
+							--><rs-layer
+								id="slider-1-slide-1-layer-7" 
+								data-type="text"
+								data-color="#0a0202"
+								data-rsp_ch="on"
+								data-xy="x:10px;y:227px;"
+								data-text="s:20;l:22;ls:0px;fw:500;"
+								data-padding="t:2;r:10;b:2;l:10;"
+								data-frame_1="e:power2.inOut;st:540;sR:540;"
+								data-frame_999="o:0;e:nothing;st:w;sR:8160;"
+								style="z-index:9;background-color:rgba(255,255,255,0.8);font-family:'Poppins';text-transform:uppercase;"
+							>Welcome to Nomad 
+							</rs-layer><!--
+-->					</rs-slide>
+						<rs-slide style="position: absolute;" data-key="rs-2" data-title="Slide" data-thumb="//nomadcts.com/media/2015/12/slider-2-1.jpg" data-anim="adpr:false;" data-in="o:0;" data-out="a:false;">
+							<img decoding="async" src="wp-content/plugins/revslider/sr6/assets/assets/dummy.png" alt="" title="Home 1" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="//nomadcts.com/media/2015/12/slider-2-1.jpg" data-panzoom="d:10000;ss:100;se:109;" data-no-retina>
+<!--
+							--><rs-layer
+								id="slider-1-slide-2-layer-3" 
+								data-type="text"
+								data-color="rgba(255, 255, 255, 1)"
+								data-rsp_ch="on"
+								data-xy="x:10px;y:284px;"
+								data-text="s:68;l:69;ls:0px;fw:800;"
+								data-frame_0="y:50px;"
+								data-frame_1="e:power2.inOut;st:260;sp:380;sR:260;"
+								data-frame_999="y:-50px;o:0;e:nothing;st:w;sR:8360;"
+								style="z-index:5;font-family:'Poppins';"
+							>Over 150+ Payment methods <br> 
+for your Business 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-1-slide-2-layer-4" 
+								data-type="text"
+								data-color="rgba(255, 255, 255, 1)"
+								data-rsp_ch="on"
+								data-xy="x:10px;y:434px;"
+								data-text="s:18;l:32;ls:0px;"
+								data-frame_0="y:50px;"
+								data-frame_1="e:power2.inOut;st:910;sp:420;sR:910;"
+								data-frame_999="y:-50px;o:0;e:nothing;st:w;sR:7670;"
+								style="z-index:7;font-family:'Poppins';"
+							>Nomad CTS offers you 150+ Pay-In and Pay-Out methods <br>
+for paying Distributors and receiving money. 
+							</rs-layer><!--
+
+							--><a
+								id="slider-1-slide-2-layer-6" 
+								class="rs-layer rev-btn"
+								href="../calendly.com/nomadcts.html" target="_blank" rel="noopener"
+								data-type="button"
+								data-color="rgba(255, 255, 255, 1)"
+								data-xy="x:10px;y:513px;"
+								data-text="s:12;l:14;ls:1px;fw:600;"
+								data-vbility="f,f,f,f"
+								data-rsp_bd="off"
+								data-padding="t:12;r:35;b:12;l:35;"
+								data-border="bor:30px,30px,30px,30px;"
+								data-frame_0="y:50px;"
+								data-frame_1="e:power2.inOut;st:1330;sp:390;sR:1330;"
+								data-frame_999="y:-50px;o:0;e:nothing;st:w;sR:7280;"
+								data-frame_hover="c:#000;bgc:#fff;boc:#000;bor:30px,30px,30px,30px;bos:solid;oX:50;oY:50;sp:0;e:none;"
+								style="z-index:8;background-color:rgba(67,133,245,1);font-family:'Poppins';text-transform:uppercase;cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"
+							>Free Consultation 
+							</a><!--
+
+							--><rs-layer
+								id="slider-1-slide-2-layer-7" 
+								data-type="text"
+								data-color="#0a0202"
+								data-rsp_ch="on"
+								data-xy="x:10px;y:251px;"
+								data-text="s:20;l:22;ls:0px;fw:500;"
+								data-padding="t:2;r:10;b:2;l:10;"
+								data-frame_1="e:power2.inOut;st:540;sR:540;"
+								data-frame_999="o:0;e:nothing;st:w;sR:8160;"
+								style="z-index:6;background-color:rgba(255,255,255,0.8);font-family:'Poppins';text-transform:uppercase;"
+							>Welcome to Nomad 
+							</rs-layer><!--
+-->					</rs-slide>
+						<rs-slide style="position: absolute;" data-key="rs-3" data-title="Slide" data-thumb="//nomadcts.com/media/revslider/slider-3.jpg" data-anim="adpr:false;" data-in="o:0;" data-out="a:false;">
+							<img decoding="async" src="wp-content/plugins/revslider/sr6/assets/assets/dummy.png" alt="" title="Home 1" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="//nomadcts.com/media/revslider/slider-3.jpg" data-panzoom="d:10000;ss:100;se:110;" data-no-retina>
+<!--
+							--><rs-layer
+								id="slider-1-slide-3-layer-3" 
+								data-type="text"
+								data-color="rgba(255, 255, 255, 1)"
+								data-rsp_ch="on"
+								data-xy="x:c;y:319px;"
+								data-text="s:59;l:59;ls:0px;fw:800;a:center;"
+								data-frame_0="y:100%;"
+								data-frame_0_mask="u:t;y:100%;"
+								data-frame_1="e:power2.inOut;st:260;sp:2000;sR:260;"
+								data-frame_1_mask="u:t;"
+								data-frame_999="y:-50px;o:0;e:nothing;st:w;sR:6740;"
+								style="z-index:8;font-family:'Poppins';"
+							>You control your Funds 
+							</rs-layer><!--
+
+							--><rs-layer
+								id="slider-1-slide-3-layer-4" 
+								data-type="text"
+								data-color="rgba(255, 255, 255, 1)"
+								data-rsp_ch="on"
+								data-xy="x:c;y:398px;"
+								data-text="s:18;l:32;ls:0px;a:center;"
+								data-frame_0="y:100%;"
+								data-frame_0_mask="u:t;y:100%;"
+								data-frame_1="e:power2.inOut;st:840;sp:2000;sR:840;"
+								data-frame_1_mask="u:t;"
+								data-frame_999="y:-50px;o:0;e:nothing;st:w;sR:6160;"
+								style="z-index:10;font-family:'Poppins';"
+							>NOMAD CTS gives your company the technology <br> and support you need to keep real time control of your funds. 
+							</rs-layer><!--
+
+							--><a
+								id="slider-1-slide-3-layer-6" 
+								class="rs-layer rev-btn"
+								href="../calendly.com/nomadcts.html" target="_blank" rel="noopener"
+								data-type="button"
+								data-color="rgba(255, 255, 255, 1)"
+								data-xy="x:c;y:483px;"
+								data-text="s:12;l:14;ls:1px;fw:600;a:center;"
+								data-vbility="f,f,f,f"
+								data-rsp_bd="off"
+								data-padding="t:12;r:35;b:12;l:35;"
+								data-border="bor:30px,30px,30px,30px;"
+								data-frame_0="y:100%;"
+								data-frame_0_mask="u:t;y:100%;"
+								data-frame_1="e:power2.inOut;st:1190;sp:2000;sR:1190;"
+								data-frame_1_mask="u:t;"
+								data-frame_999="y:-50px;o:0;e:nothing;st:w;sR:5810;"
+								data-frame_hover="c:#000;bgc:#fff;boc:#000;bor:30px,30px,30px,30px;bos:solid;oX:50;oY:50;sp:0;e:none;"
+								style="z-index:11;background-color:rgba(67,133,245,1);font-family:'Poppins';text-transform:uppercase;cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"
+							>Free Consultation 
+							</a><!--
+
+							--><rs-layer
+								id="slider-1-slide-3-layer-7" 
+								data-type="text"
+								data-color="#0c0c0c"
+								data-rsp_ch="on"
+								data-xy="x:c;y:290px;"
+								data-text="s:20;l:20;ls:0px;fw:500;"
+								data-padding="t:2;r:10;b:2;l:10;"
+								data-frame_0="y:100%;"
+								data-frame_0_mask="u:t;y:100%;"
+								data-frame_1="e:power2.inOut;st:500;sp:2000;sR:500;"
+								data-frame_1_mask="u:t;"
+								data-frame_999="o:0;e:nothing;st:w;sR:6500;"
+								style="z-index:9;background-color:#ffffff;font-family:'Poppins';text-transform:uppercase;"
+							>Welcome to Nomad 
+							</rs-layer><!--
+-->					</rs-slide>
+					</rs-slides>
+				</rs-module>
+				<script>
+					setREVStartSize({c: 'rev_slider_1_1',rl:[1240,1024,778,480],el:[800],gw:[1170],gh:[800],type:'standard',justify:'',layout:'fullwidth',mh:"0"});if (window.RS_MODULES!==undefined && window.RS_MODULES.modules!==undefined && window.RS_MODULES.modules["revslider11"]!==undefined) {window.RS_MODULES.modules["revslider11"].once = false;window.revapi1 = undefined;if (window.RS_MODULES.checkMinimal!==undefined) window.RS_MODULES.checkMinimal()}
+				</script>
+			</rs-module-wrap>
+			<!-- END REVOLUTION SLIDER -->
+</div></div></div></div></div><div class="vc_wpb_row_inner  "><div id="services" class="vc_row wpb_row vc_row-fluid row-fullwidth vc_row-o-equal-height vc_row-o-content-middle vc_row-flex" style="display:flex;flex-wrap:wrap;"><div class="column-style-2 wpb_column vc_column_container vc_col-sm-8 vc_col-lg-7 vc_col-md-7" style="order:2;"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
 <div class="widget gsc-heading  align-left style-2 text-dark">
       <h1 class="title"><span>Our Services</span></h1>   <div class="line"><span></span></div>
    <div class="title-desc">With Nomad CTS you can enhance your business and your customers experience like never before.</div></div>
@@ -525,7 +665,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           </div> 
      
 
-  </div></div></div></div></div></div></div><div class="bg-left wpb_column vc_column_container vc_col-sm-4 vc_col-lg-5 vc_col-md-5 hidden-xs vc_col-has-fill"><div class="vc_column-inner vc_custom_1627324767634"><div class="wpb_wrapper"><div class="wpb_gallery wpb_content_element vc_clearfix wpb_content_element" ><div class="wpb_wrapper"><div class="wpb_gallery_slides wpb_flexslider flexslider_fade flexslider" data-interval="3" data-flex_fx="fade"><ul class="slides"><li><img fetchpriority="high" decoding="async" width="518" height="582" src="wp-content/uploads/2018/07/image-8.png" class="attachment-full" alt="" title="image-8" /></li></ul></div></div></div></div></div></div></div></div><div class="vc_wpb_row_inner  vc_custom_1627678226029"><div id="expertise" class="vc_row wpb_row vc_row-fluid row-container"><div class="container"><div class="row "><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-3 vc_col-xs-6"><div class="vc_column-inner vc_custom_1531818065940"><div class="wpb_wrapper">
+  </div></div></div></div></div></div></div><div class="bg-left wpb_column vc_column_container vc_col-sm-4 vc_col-lg-5 vc_col-md-5 hidden-xs vc_col-has-fill" style="order:1;"><div class="vc_column-inner vc_custom_1627324767634"><div class="wpb_wrapper"><div class="wpb_gallery wpb_content_element vc_clearfix wpb_content_element" ><div class="wpb_wrapper"><div class="wpb_gallery_slides wpb_flexslider flexslider_fade flexslider" data-interval="3" data-flex_fx="fade"><ul class="slides"><li><img fetchpriority="high" decoding="async" width="518" height="582" src="wp-content/uploads/2018/07/image-8.png" class="attachment-full" alt="" title="image-8" /></li></ul></div></div></div></div></div></div></div></div><div class="vc_wpb_row_inner  vc_custom_1627678226029"><div id="expertise" class="vc_row wpb_row vc_row-fluid row-container"><div class="container"><div class="row "><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-3 vc_col-xs-6"><div class="vc_column-inner vc_custom_1531818065940"><div class="wpb_wrapper">
 <div class="widget gsc-heading  align-left style-2 text-dark">
       <h1 class="title"><span>Why Nomad ?</span></h1>   <div class="line"><span></span></div>
    <div class="title-desc">Let us help you reduce costs and improve efficiency as you expand your global operations.</p>
