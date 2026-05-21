@@ -1,1038 +1,879 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome to Nomad CTS</title>
-  <meta property="og:title" content="Welcome to Nomad CTS" />
-  <meta property="og:site_name" content="Welcome to Nomad CTS" />
-  <link rel="icon" href="wp-content/uploads/2015/12/cropped-Nomad-Site-Icon500-32x32.png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="wp-content/uploads/2015/12/cropped-Nomad-Site-Icon500-180x180.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="wp-content/themes/enzio/css/fontawesome/css/font-awesome.min.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AbundanceTech — AI Technology Development Services</title>
+<meta name="description" content="AbundanceTech helps businesses design, build, and scale custom AI systems. From strategy to deployment — AI that actually works." />
+<meta property="og:title" content="AbundanceTech — AI Technology Development Services" />
+<meta property="og:description" content="We help businesses design, build, and scale custom AI systems that drive real outcomes." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://abundancetech.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',sans-serif;background:#0B0F0E;color:#E8EDE9;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+:root{
+  --g950:#041F16;--g900:#073324;--g800:#085041;--g700:#0F6E56;--g600:#1D9E75;
+  --g500:#3DBEA0;--g400:#6ED4B8;--g300:#9FE1CB;--g200:#C5EFE0;--g100:#E1F5EE;
+  --s0:#0B0F0E;--s1:#111815;--s2:#182019;--s3:#1F2B24;--s4:#263529;
+  --tp:#E8EDE9;--ts:#8FA494;--tt:#5C7265;
+  --bd:rgba(255,255,255,0.07);--bdl:rgba(255,255,255,0.13);
+  --ff:'Plus Jakarta Sans',sans-serif;--fb:'DM Sans',sans-serif;
+  --r-sm:6px;--r-md:10px;--r-lg:16px;--r-xl:24px;
+  --mw:1160px;--px:clamp(1.25rem,5vw,3.5rem)
+}
+.container{max-width:var(--mw);margin:0 auto;padding:0 var(--px)}
 
-  <style>
-    /* ── RESET & BASE ─────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Roboto', sans-serif;
-      font-size: 19px;
-      color: #555;
-      line-height: 1.7;
-      background: #fff;
-    }
-    a { color: inherit; text-decoration: none; }
-    ul { list-style: none; }
-    img { max-width: 100%; height: auto; display: block; }
+/* ── Tag ── */
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;letter-spacing:1.3px;text-transform:uppercase;color:var(--g400);padding:5px 13px;background:rgba(29,158,117,0.1);border:.5px solid rgba(29,158,117,0.22);border-radius:100px}
+.tag::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--g500);flex-shrink:0}
 
-    /* ── HEADER ─────────────────────────────────────── */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-    .header-inner {
-      max-width: 1600px;
-      margin: 0 auto;
-      padding: 0 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 70px;
-    }
-    .site-logo img { height: 45px; width: auto; }
-    .main-nav { display: flex; gap: 36px; align-items: center; }
-    .main-nav a {
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      color: #333;
-      transition: color 0.2s;
-    }
-    .main-nav a:hover { color: #f76c2f; }
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .nav-toggle span {
-      display: block;
-      width: 24px; height: 2px;
-      background: #333;
-      margin: 5px 0;
-    }
-    @media (max-width: 767px) {
-      .nav-toggle { display: block; }
-      .main-nav {
-        display: none;
-        flex-direction: column;
-        gap: 0;
-        position: absolute;
-        top: 70px; left: 0; right: 0;
-        background: #fff;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        padding: 12px 0;
-      }
-      .main-nav.open { display: flex; }
-      .main-nav a {
-        padding: 12px 24px;
-        width: 100%;
-        border-bottom: 1px solid #f0f0f0;
-      }
-    }
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:var(--r-md);font-family:var(--fb);font-size:14px;font-weight:500;cursor:pointer;border:none;transition:all .18s;white-space:nowrap;text-decoration:none}
+.btn-primary{background:var(--g600);color:#fff;padding:13px 24px}
+.btn-primary:hover{background:var(--g500);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--tp);padding:13px 24px;border:.5px solid var(--bdl)}
+.btn-ghost:hover{background:var(--s3)}
+.btn-white{background:#fff;color:var(--g800);padding:13px 24px}
+.btn-white:hover{background:var(--g100);transform:translateY(-1px)}
 
-    /* ── HERO SLIDER ────────────────────────────────── */
-    .hero-slider {
-      position: relative;
-      width: 100%;
-      height: 800px;
-      overflow: hidden;
-    }
-    .hero-slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-      pointer-events: none;
-    }
-    .hero-slide.active { opacity: 1; pointer-events: auto; }
-    .hero-slide-bg {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-    }
-    .hero-slide.active .hero-slide-bg {
-      animation: kenburns 10s ease-out forwards;
-    }
-    @keyframes kenburns {
-      from { transform: scale(1); }
-      to   { transform: scale(1.08); }
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.38);
-    }
-    .hero-content {
-      position: absolute;
-      bottom: 200px;
-      left: 60px;
-      z-index: 10;
-    }
-    .hero-slide--center .hero-content {
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      white-space: nowrap;
-    }
-    .hero-label {
-      display: inline-block;
-      background: rgba(255,255,255,0.88);
-      color: #111;
-      font-family: 'Poppins', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 3px 12px;
-      margin-bottom: 16px;
-    }
-    .hero-title {
-      color: #fff;
-      font-family: 'Poppins', sans-serif;
-      font-size: 72px;
-      font-weight: 800;
-      line-height: 1.08;
-      margin-bottom: 32px;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    }
-    .hero-btn {
-      display: inline-block;
-      background: #4385f5;
-      color: #fff;
-      font-family: 'Poppins', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 13px 38px;
-      border-radius: 30px;
-      transition: background 0.25s, color 0.25s;
-    }
-    .hero-btn:hover { background: #fff; color: #111; }
-    .slider-dots {
-      position: absolute;
-      bottom: 28px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-      z-index: 20;
-    }
-    .slider-dot {
-      width: 13px; height: 13px;
-      border-radius: 50%;
-      border: 5px solid #000;
-      background: #fff;
-      cursor: pointer;
-      transition: all 0.25s;
-    }
-    .slider-dot.active { background: #000; border-color: #fff; }
-    @media (max-width: 767px) {
-      .hero-slider { height: 480px; }
-      .hero-title { font-size: 40px; }
-      .hero-content {
-        left: 20px !important;
-        bottom: 90px;
-        transform: none !important;
-        white-space: normal !important;
-      }
-    }
+/* ── Navbar ── */
+#navbar{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 var(--px);height:66px;background:rgba(11,15,14,.6);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:.5px solid transparent;transition:border-color .3s,background .3s}
+#navbar.scrolled{border-bottom-color:var(--bd);background:rgba(11,15,14,.92)}
+.nav-logo{font-family:var(--ff);font-weight:800;font-size:17px;letter-spacing:-.5px}
+.nav-logo span{color:var(--g500)}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:13px;color:var(--ts);transition:color .2s}
+.nav-links a:hover{color:var(--tp)}
+.nav-cta{margin-left:.5rem}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--ts);border-radius:2px;transition:all .25s}
+.mobile-menu{display:none;position:fixed;inset:0;top:66px;background:rgba(11,15,14,.97);backdrop-filter:blur(18px);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--ff);font-size:22px;font-weight:700;color:var(--tp)}
 
-    /* ── SHARED ─────────────────────────────────────── */
-    .container { max-width: 1600px; margin: 0 auto; padding: 0 48px; }
-    .heading-bar {
-      width: 40px; height: 3px;
-      background: #f76c2f;
-      margin: 10px 0 14px;
-    }
+/* ── Hero ── */
+#hero{padding:140px var(--px) 100px;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse at center,rgba(29,158,117,.18) 0%,transparent 70%);pointer-events:none;z-index:0}
+.hero-inner{position:relative;z-index:1;max-width:var(--mw);margin:0 auto}
+.hero-eyebrow{margin-bottom:1.5rem}
+.hero-h1{font-family:var(--ff);font-size:clamp(40px,6vw,72px);font-weight:800;letter-spacing:-1.5px;line-height:1.06;margin-bottom:1.5rem;max-width:700px}
+.hero-h1 em{font-style:normal;color:var(--g500)}
+.hero-sub{font-size:18px;color:var(--ts);max-width:480px;line-height:1.7;font-weight:300;margin-bottom:2.25rem}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:4rem}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border:.5px solid var(--bd);border-radius:var(--r-lg);overflow:hidden;max-width:560px;background:var(--s1)}
+.hero-stat{padding:1.25rem 1.5rem;border-right:.5px solid var(--bd)}
+.hero-stat:last-child{border-right:none}
+.hero-stat-val{font-family:var(--ff);font-size:26px;font-weight:800;letter-spacing:-.75px;color:var(--tp)}
+.hero-stat-val span{color:var(--g500)}
+.hero-stat-label{font-size:12px;color:var(--tt);margin-top:2px;font-weight:300}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--tt);opacity:.7;animation:bounce 2s infinite}
+.hero-scroll-line{width:1px;height:32px;background:linear-gradient(to bottom,var(--g700),transparent)}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-    /* ── SERVICES ───────────────────────────────────── */
-    .services-row {
-      display: flex;
-      align-items: stretch;
-      width: 100%;
-      max-width: 1600px;
-      margin: 0 auto;
-    }
-    .services-image-col {
-      flex: 0 0 42%;
-      background: #fff url('wp-content/uploads/2018/07/image-8.png') no-repeat bottom center;
-      background-size: contain;
-      min-height: 600px;
-    }
-    .services-image-col img {
-      display: none;
-    }
-    .services-content-col {
-      flex: 1;
-      padding: 72px 64px 72px 72px;
-      background: #fff;
-      overflow-y: auto;
-    }
-    .section-heading { margin-bottom: 32px; }
-    .section-heading h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 42px;
-      font-weight: 700;
-      color: #222;
-      margin-bottom: 8px;
-    }
-    .section-heading p { font-size: 19px; color: #666; line-height: 1.75; }
-    .services-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px 48px;
-    }
-    .service-item { display: flex; gap: 16px; align-items: flex-start; }
-    .service-icon {
-      flex-shrink: 0;
-      width: 72px; height: 72px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
-    }
-    .icon-orange { background: #FDEFEC; color: #f0927a; }
-    .icon-green  { background: #E5FAF5; color: #45D3A8; }
-    .icon-blue   { background: #EAF0FE; color: #6B8EEF; }
-    .icon-purple { background: #F5ECFD; color: #B17EF0; }
-    .service-text { padding-top: 4px; }
-    .service-text h4 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      color: #222;
-      margin-bottom: 10px;
-      line-height: 1.4;
-    }
-    .service-text p { font-size: 18px; color: #777; line-height: 1.75; }
-    @media (max-width: 900px) {
-      .services-row { flex-direction: column; }
-      .services-image-col { flex: none; height: 300px; }
-      .services-content-col { padding: 36px 24px; }
-      .services-grid { grid-template-columns: 1fr; }
-    }
+/* ── Marquee ── */
+.marquee-wrap{padding:2rem 0;border-top:.5px solid var(--bd);border-bottom:.5px solid var(--bd);overflow:hidden;position:relative}
+.marquee-wrap::before,.marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2}
+.marquee-wrap::before{left:0;background:linear-gradient(to right,var(--s0),transparent)}
+.marquee-wrap::after{right:0;background:linear-gradient(to left,var(--s0),transparent)}
+.marquee-track{display:flex;gap:0;animation:marquee 30s linear infinite;width:max-content}
+.marquee-item{display:flex;align-items:center;gap:.6rem;font-size:13px;color:var(--tt);font-weight:400;padding:0 2.5rem;white-space:nowrap}
+.marquee-item .dot{width:4px;height:4px;border-radius:50%;background:var(--g700);flex-shrink:0}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-    /* ── EXPERTISE ──────────────────────────────────── */
-    .expertise-section {
-      background: #f4f5f9;
-      padding: 90px 0 80px;
-    }
-    .expertise-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
-      align-items: start;
-    }
-    .expertise-intro h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 38px;
-      font-weight: 700;
-      color: #222;
-      margin-bottom: 8px;
-    }
-    .expertise-intro p { font-size: 18px; color: #666; line-height: 1.8; }
-    .expertise-intro p + p { margin-top: 12px; }
-    /* flip card container */
-    .expertise-card {
-      height: 360px;
-      perspective: 1000px;
-      cursor: pointer;
-    }
-    .expertise-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-      border-radius: 8px;
-    }
-    .expertise-card:hover .expertise-card-inner {
-      transform: rotateY(180deg);
-    }
-    /* front and back share base styles */
-    .expertise-card-front,
-    .expertise-card-back {
-      position: absolute;
-      inset: 0;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.10);
-    }
-    /* FRONT */
-    .expertise-card-front {
-      background: #fff;
-    }
-    .expertise-card-front img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    .expertise-card-front-body {
-      padding: 22px 24px 24px;
-    }
-    .expertise-card-front-body h3 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 20px;
-      font-weight: 600;
-      color: #222;
-      margin-bottom: 10px;
-    }
-    .expertise-card-front-body p { font-size: 16px; color: #777; line-height: 1.7; }
-    /* BACK */
-    .expertise-card-back {
-      background: linear-gradient(135deg, #2c3e6b 0%, #4385f5 100%);
-      transform: rotateY(180deg);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 36px 32px;
-      text-align: center;
-    }
-    .expertise-card-back h3 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 16px;
-    }
-    .expertise-card-back p {
-      font-size: 16px;
-      color: rgba(255,255,255,0.88);
-      line-height: 1.75;
-    }
-    @media (max-width: 900px) {
-      .expertise-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 550px) {
-      .expertise-grid { grid-template-columns: 1fr; }
-    }
+/* ── Section shared ── */
+section{padding:clamp(4rem,8vw,7rem) var(--px)}
+.section-label{font-size:11px;font-weight:500;letter-spacing:1.3px;text-transform:uppercase;color:var(--g500);margin-bottom:.75rem}
+.section-h{font-family:var(--ff);font-size:clamp(26px,3.5vw,40px);font-weight:800;letter-spacing:-.75px;line-height:1.1;margin-bottom:.75rem}
+.section-sub{font-size:16px;color:var(--ts);max-width:500px;line-height:1.7;font-weight:300}
 
-    /* ── PAYMENTS MANAGER ───────────────────────────── */
-    .pm-section {
-      padding: 90px 0 0;
-      background-image: url('wp-content/uploads/2018/07/bg-1124e8.png');
-      background-repeat: repeat;
-      background-color: #2c3e6b;
-    }
-    .pm-row {
-      display: flex;
-      align-items: flex-end;
-      gap: 48px;
-    }
-    .pm-content { flex: 1; padding-bottom: 60px; }
-    .pm-content h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 38px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 44px;
-    }
-    .pm-features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px 20px;
-    }
-    .pm-feature { display: flex; align-items: center; gap: 14px; }
-    .pm-feature-icon {
-      flex-shrink: 0;
-      width: 56px; height: 56px;
-      background: #fff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      color: #4385f5;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-    }
-    .pm-feature-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 18px;
-      font-weight: 600;
-      color: #fff;
-      line-height: 1.4;
-    }
-    .pm-image { flex: 0 0 40%; }
-    .pm-image img { width: 100%; display: block; }
-    @media (max-width: 900px) {
-      .pm-row { flex-direction: column; align-items: stretch; gap: 32px; }
-      .pm-content { padding-bottom: 0; }
-      .pm-features { grid-template-columns: 1fr; }
-      .pm-image { order: -1; }
-    }
+/* ── Services ── */
+#services{background:var(--s0)}
+.services-header{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:3rem}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);border:.5px solid var(--bd);border-radius:var(--r-xl);overflow:hidden}
+.service-card{background:var(--s1);padding:2rem;transition:background .2s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--g700),transparent);opacity:0;transition:opacity .3s}
+.service-card:hover{background:var(--s2)}
+.service-card:hover::before{opacity:1}
+.svc-icon{width:42px;height:42px;border-radius:var(--r-md);background:rgba(29,158,117,0.12);border:.5px solid rgba(29,158,117,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+.svc-icon svg{width:20px;height:20px;stroke:var(--g400);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.svc-title{font-family:var(--ff);font-size:16px;font-weight:700;margin-bottom:.5rem;color:var(--tp)}
+.svc-desc{font-size:14px;color:var(--ts);line-height:1.65;font-weight:300}
+.svc-pill{display:inline-block;margin-top:1rem;font-size:11px;font-weight:500;color:var(--g400);background:rgba(29,158,117,0.08);border:.5px solid rgba(29,158,117,0.18);padding:3px 10px;border-radius:100px}
 
-    /* ── FOOTER ─────────────────────────────────────── */
-    .site-footer { background: #1e2229; color: #aaa; }
-    .footer-widgets {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
-      padding: 80px 0 60px;
-    }
-    .footer-widget h3 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 17px;
-      font-weight: 600;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 18px;
-    }
-    .footer-widget a { color: #aaa; font-size: 17px; transition: color 0.2s; }
-    .footer-widget a:hover { color: #f76c2f; }
-    .footer-widget li { margin-bottom: 8px; }
-    .footer-contact-btn {
-      display: inline-block;
-      margin-top: 4px;
-      padding: 11px 28px;
-      background: #4385f5;
-      color: #fff;
-      font-family: 'Poppins', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      border-radius: 4px;
-      letter-spacing: 0.4px;
-      transition: background 0.2s;
-    }
-    .footer-contact-btn:hover { background: #2c6edb; color: #fff; }
-    .newsletter-form p { font-size: 13px; color: #888; margin-bottom: 10px; }
-    .newsletter-form input[type="email"] {
-      width: 100%;
-      background: #2a2f38;
-      border: 1px solid #3a3f4a;
-      color: #ccc;
-      padding: 10px 14px;
-      border-radius: 4px;
-      font-size: 13px;
-      margin-bottom: 10px;
-    }
-    .newsletter-form button {
-      background: #f76c2f;
-      color: #fff;
-      border: none;
-      padding: 10px 22px;
-      border-radius: 4px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .newsletter-form button:hover { background: #e5581a; }
-    .footer-bottom {
-      border-top: 1px solid #2a2f38;
-      padding: 20px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .footer-copyright { font-size: 15px; color: #666; }
-    .footer-socials { display: flex; gap: 10px; }
-    .footer-socials a {
-      width: 34px; height: 34px;
-      background: #2a2f38;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #888;
-      font-size: 14px;
-      transition: background 0.2s, color 0.2s;
-    }
-    .footer-socials a:hover { background: #f76c2f; color: #fff; }
-    @media (max-width: 900px) {
-      .footer-widgets { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 550px) {
-      .footer-widgets { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-    }
+/* ── How We Work ── */
+#process{background:var(--s1)}
+.process-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.process-steps{display:flex;flex-direction:column;gap:0}
+.process-step{display:flex;gap:1.5rem;padding:1.75rem 0;border-bottom:.5px solid var(--bd);position:relative}
+.process-step:last-child{border-bottom:none}
+.process-step.active .step-num{color:var(--g500);background:rgba(29,158,117,0.12)}
+.step-num{font-family:var(--ff);font-size:12px;font-weight:700;color:var(--tt);min-width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:.5px solid var(--bd);flex-shrink:0;transition:all .2s}
+.step-body-title{font-size:15px;font-weight:500;margin-bottom:.3rem;color:var(--tp)}
+.step-body-desc{font-size:13px;color:var(--ts);line-height:1.65;font-weight:300}
+.process-visual{background:var(--s2);border:.5px solid var(--bd);border-radius:var(--r-xl);padding:2rem;position:sticky;top:100px}
+.pv-title{font-family:var(--ff);font-size:13px;font-weight:700;color:var(--g400);margin-bottom:1.25rem;letter-spacing:.5px}
+.pv-timeline{display:flex;flex-direction:column;gap:.5rem}
+.pv-week{display:flex;align-items:center;gap:.75rem;font-size:13px;color:var(--ts)}
+.pv-week-bar-wrap{flex:1;height:6px;background:var(--s3);border-radius:3px;overflow:hidden}
+.pv-week-bar{height:100%;border-radius:3px;background:var(--g700)}
+.pv-week-bar.active{background:var(--g500)}
+.pv-week-label{min-width:54px;font-size:11px;color:var(--tt)}
+.pv-note{margin-top:1.5rem;padding:1rem;background:var(--s3);border-radius:var(--r-md);font-size:13px;color:var(--ts);line-height:1.6;border-left:2px solid var(--g700)}
 
-    /* ── CONTACT POPUP ──────────────────────────────── */
-    .popup-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      z-index: 9999;
-      align-items: flex-start;
-      justify-content: center;
-      padding-top: 80px;
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-    .popup-overlay.open { display: flex; }
-    .popup-box {
-      background: #fff;
-      width: 100%;
-      max-width: 620px;
-      border-radius: 6px;
-      padding: 36px 40px;
-      position: relative;
-      animation: popIn 0.3s ease;
-    }
-    @keyframes popIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to   { opacity: 1; transform: none; }
-    }
-    .popup-close {
-      position: absolute;
-      top: 14px; right: 18px;
-      background: none; border: none;
-      font-size: 26px; cursor: pointer; color: #bbb;
-      line-height: 1;
-    }
-    .popup-close:hover { color: #333; }
-    .popup-box h3 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: #222;
-      margin-bottom: 24px;
-    }
-    .form-field { margin-bottom: 16px; }
-    .form-field label {
-      display: block;
-      font-size: 13px;
-      font-weight: 500;
-      color: #444;
-      margin-bottom: 6px;
-    }
-    .form-field input,
-    .form-field textarea {
-      width: 100%;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      padding: 10px 14px;
-      font-size: 14px;
-      font-family: 'Roboto', sans-serif;
-      color: #333;
-      transition: border-color 0.2s;
-    }
-    .form-field input:focus,
-    .form-field textarea:focus { outline: none; border-color: #4385f5; }
-    .form-field textarea { height: 100px; resize: vertical; }
-    .form-submit {
-      background: #4385f5;
-      color: #fff;
-      border: none;
-      padding: 13px 32px;
-      border-radius: 4px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: 8px;
-      transition: background 0.2s;
-    }
-    .form-submit:hover { background: #2c6edb; }
-  </style>
+/* ── Industries ── */
+#industries{background:var(--s0)}
+.industries-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:2.5rem}
+.ind-card{background:var(--s1);border:.5px solid var(--bd);border-radius:var(--r-lg);padding:1.75rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color .2s,background .2s}
+.ind-card:hover{background:var(--s2);border-color:var(--bdl)}
+.ind-icon{width:40px;height:40px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ind-icon svg{width:20px;height:20px;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.ind-title{font-size:15px;font-weight:500;margin-bottom:.3rem;color:var(--tp)}
+.ind-desc{font-size:13px;color:var(--ts);line-height:1.6;font-weight:300}
+
+/* ── Tech Stack ── */
+#tech{background:var(--s1)}
+.tech-layout{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start}
+.tech-categories{display:flex;flex-direction:column;gap:2rem}
+.tech-cat-title{font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--tt);margin-bottom:.75rem}
+.tech-chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:12px;background:var(--s3);border:.5px solid var(--bd);border-radius:var(--r-sm);padding:5px 12px;color:var(--ts);font-weight:400;transition:all .15s}
+.chip:hover{background:var(--s4);border-color:var(--bdl);color:var(--tp)}
+
+/* ── About ── */
+#about{background:var(--s0)}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-copy p{font-size:16px;color:var(--ts);line-height:1.8;font-weight:300;margin-bottom:1rem}
+.about-copy p:last-child{margin-bottom:1.5rem}
+.about-metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:2rem}
+.about-metric{background:var(--s1);border:.5px solid var(--bd);border-radius:var(--r-md);padding:1.25rem}
+.about-metric-val{font-family:var(--ff);font-size:32px;font-weight:800;letter-spacing:-.75px;color:var(--tp)}
+.about-metric-val span{color:var(--g500)}
+.about-metric-label{font-size:12px;color:var(--tt);margin-top:3px;font-weight:300}
+.about-visual{position:relative}
+.about-card{background:var(--s2);border:.5px solid var(--bd);border-radius:var(--r-xl);padding:2rem}
+.about-card-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
+.about-card-dot{width:10px;height:10px;border-radius:50%;background:var(--g600)}
+.about-card-title{font-size:13px;color:var(--ts);font-weight:300}
+.about-list{display:flex;flex-direction:column;gap:.75rem}
+.about-list-item{display:flex;align-items:center;gap:.75rem;font-size:14px;color:var(--ts);font-weight:300}
+.about-list-item::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--g600);flex-shrink:0}
+.fintech-badge{margin-top:1.25rem;padding:1rem 1.25rem;background:rgba(29,158,117,0.07);border:.5px solid rgba(29,158,117,0.2);border-radius:var(--r-md)}
+.fintech-badge-title{font-size:12px;font-weight:500;color:var(--g400);margin-bottom:.3rem;letter-spacing:.5px;text-transform:uppercase}
+.fintech-badge-text{font-size:13px;color:var(--ts);font-weight:300;line-height:1.6}
+
+/* ── CTA ── */
+#cta{padding:clamp(4rem,8vw,7rem) var(--px)}
+.cta-box{background:var(--g800);border-radius:var(--r-xl);padding:clamp(3rem,6vw,5rem) clamp(2rem,5vw,4rem);position:relative;overflow:hidden;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+.cta-box::before{content:'';position:absolute;right:-100px;top:-100px;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,0.03);pointer-events:none}
+.cta-box::after{content:'';position:absolute;right:80px;bottom:-80px;width:250px;height:250px;border-radius:50%;background:rgba(255,255,255,0.03);pointer-events:none}
+.cta-copy{position:relative;z-index:1}
+.cta-copy h2{font-family:var(--ff);font-size:clamp(26px,3.5vw,40px);font-weight:800;letter-spacing:-.75px;margin-bottom:.75rem;color:#fff;line-height:1.1}
+.cta-copy p{font-size:16px;color:rgba(255,255,255,.65);font-weight:300;max-width:420px;line-height:1.65}
+.cta-actions{display:flex;gap:12px;flex-direction:column;position:relative;z-index:1;flex-shrink:0}
+.cta-note{font-size:12px;color:rgba(255,255,255,.4);text-align:center;font-weight:300}
+
+/* ── Contact ── */
+#contact{background:var(--s1);padding:clamp(4rem,8vw,7rem) var(--px)}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.contact-info p{font-size:15px;color:var(--ts);line-height:1.75;font-weight:300;margin-bottom:2rem}
+.contact-detail{display:flex;align-items:center;gap:.75rem;font-size:14px;color:var(--ts);margin-bottom:.75rem;font-weight:300}
+.contact-detail svg{width:16px;height:16px;stroke:var(--g600);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem}
+.form-label{font-size:12px;font-weight:500;color:var(--tt);letter-spacing:.5px}
+.form-input,.form-textarea{background:var(--s2);border:.5px solid var(--bd);border-radius:var(--r-md);padding:12px 14px;font-family:var(--fb);font-size:14px;color:var(--tp);outline:none;transition:border-color .2s;width:100%}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--tt)}
+.form-input:focus,.form-textarea:focus{border-color:var(--g700)}
+.form-textarea{resize:vertical;min-height:130px;line-height:1.6}
+.form-submit{align-self:flex-start}
+
+/* ── Footer ── */
+footer{background:var(--s0);border-top:.5px solid var(--bd);padding:3rem var(--px) 2rem}
+.footer-inner{max-width:var(--mw);margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand p{font-size:13px;color:var(--tt);line-height:1.7;font-weight:300;margin-top:.75rem;max-width:260px}
+.footer-col-title{font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--tt);margin-bottom:1rem}
+.footer-links{display:flex;flex-direction:column;gap:.6rem}
+.footer-links a{font-size:13px;color:var(--ts);transition:color .2s;font-weight:300}
+.footer-links a:hover{color:var(--tp)}
+.footer-bottom{border-top:.5px solid var(--bd);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.footer-copy{font-size:12px;color:var(--tt);font-weight:300}
+.footer-legal{display:flex;gap:1.5rem}
+.footer-legal a{font-size:12px;color:var(--tt);font-weight:300;transition:color .2s}
+.footer-legal a:hover{color:var(--ts)}
+
+/* ── Divider ── */
+.divider{height:.5px;background:var(--bd);max-width:var(--mw);margin:0 auto}
+
+/* ── Animations ── */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up-delay-1{transition-delay:.1s}
+.fade-up-delay-2{transition-delay:.2s}
+.fade-up-delay-3{transition-delay:.3s}
+
+/* ── Responsive ── */
+@media(max-width:960px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .process-layout{grid-template-columns:1fr}
+  .process-visual{position:static}
+  .tech-layout{grid-template-columns:1fr}
+  .about-layout{grid-template-columns:1fr}
+  .contact-layout{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .services-grid{grid-template-columns:1fr}
+  .industries-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:1fr;max-width:280px}
+  .hero-stat{border-right:none;border-bottom:.5px solid var(--bd)}
+  .hero-stat:last-child{border-bottom:none}
+  .footer-top{grid-template-columns:1fr}
+  .cta-box{flex-direction:column}
+  .about-metrics{grid-template-columns:1fr 1fr}
+}
+</style>
 </head>
-
 <body>
 
-  <!-- ══════════════ HEADER ═══════════════════════════════ -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="site-logo">
-        <a href="index.html">
-          <img src="wp-content/uploads/2015/12/Nomad-ash-and-sandx55.png" alt="Nomad CTS" />
-        </a>
-      </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="main-nav" id="mainNav">
-        <a href="#services">Services</a>
-        <a href="#expertise">Expertise</a>
-        <a href="#pm">Payments Manager</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<!-- ── Navbar ── -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">abundance<span>tech</span></a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#process">How We Work</a>
+    <a href="#industries">Industries</a>
+    <a href="#tech">Tech Stack</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="btn btn-primary nav-cta" style="padding:9px 18px;font-size:13px">Book a Call</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#process" class="mobile-link">How We Work</a>
+  <a href="#industries" class="mobile-link">Industries</a>
+  <a href="#tech" class="mobile-link">Tech Stack</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#contact" class="btn btn-primary">Book a Call</a>
+</div>
+
+<!-- ── Hero ── -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner container">
+    <div class="hero-eyebrow tag fade-up">AI Development Partner</div>
+    <h1 class="hero-h1 fade-up fade-up-delay-1">We build <em>AI products</em><br>that actually work.</h1>
+    <p class="hero-sub fade-up fade-up-delay-2">AbundanceTech helps businesses design, build, and scale custom AI systems — from strategy through deployment to ongoing optimization.</p>
+    <div class="hero-ctas fade-up fade-up-delay-3">
+      <a href="#contact" class="btn btn-primary">Start a project &rarr;</a>
+      <a href="#process" class="btn btn-ghost">See how we work</a>
     </div>
-  </header>
-
-  <!-- ══════════════ HERO ══════════════════════════════════ -->
-  <section class="hero-slider" id="heroSlider">
-
-    <div class="hero-slide active">
-      <div class="hero-slide-bg" style="background-image:url('wp-content/uploads/revslider/slider-1-1.jpg')"></div>
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <div class="hero-label">Welcome to Nomad</div>
-        <h1 class="hero-title">The premier<br>global payments solution<br>for serious business owners.</h1>
+    <div class="hero-stats fade-up fade-up-delay-3">
+      <div class="hero-stat">
+        <div class="hero-stat-val">30<span>+</span></div>
+        <div class="hero-stat-label">Years of tech expertise</div>
       </div>
-    </div>
-
-    <div class="hero-slide">
-      <div class="hero-slide-bg" style="background-image:url('wp-content/uploads/revslider/slider-2-1.jpg')"></div>
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <div class="hero-label">150+ Payment Methods</div>
-        <h1 class="hero-title">Over 150 Payment Methods<br>for Your Business</h1>
+      <div class="hero-stat">
+        <div class="hero-stat-val">6</div>
+        <div class="hero-stat-label">Core AI service offerings</div>
       </div>
-    </div>
-
-    <div class="hero-slide hero-slide--center">
-      <div class="hero-slide-bg" style="background-image:url('wp-content/uploads/revslider/slider-3.jpg')"></div>
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <div class="hero-label">You're in Control</div>
-        <h1 class="hero-title">You Control Your Funds</h1>
-      </div>
-    </div>
-
-    <div class="slider-dots">
-      <div class="slider-dot active" onclick="goSlide(0)"></div>
-      <div class="slider-dot" onclick="goSlide(1)"></div>
-      <div class="slider-dot" onclick="goSlide(2)"></div>
-    </div>
-
-  </section>
-
-  <!-- ══════════════ SERVICES ══════════════════════════════ -->
-  <section id="services">
-    <div class="services-row">
-
-      <div class="services-content-col">
-        <div class="section-heading">
-          <h2>Our Services</h2>
-          <div class="heading-bar"></div>
-          <p>With Nomad CTS, enhance your business and your customers' experience like never before.</p>
-        </div>
-
-        <div class="services-grid">
-
-          <div class="service-item">
-            <div class="service-icon icon-orange"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><line x1="6" y1="15" x2="9" y2="15"/><line x1="12" y1="15" x2="16" y2="15"/></svg></div>
-            <div class="service-text">
-              <h4>Payments Manager Administration</h4>
-              <p>We provide a white-label platform for issuance and management of multi-currency prepaid cards, with full Pay-In and Pay-Out management.</p>
-            </div>
-          </div>
-
-          <div class="service-item">
-            <div class="service-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
-            <div class="service-text">
-              <h4>Pay-In/Out Services</h4>
-              <p>Manage over 150 payment methods, including credit cards, prepaid cards, mobile, cash vouchers, bank transfers, e-wallets, country specific services, P2P and ATM.</p>
-            </div>
-          </div>
-
-          <div class="service-item">
-            <div class="service-icon icon-blue"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/><path d="M21 12h-5a2 2 0 0 0 0 4h5"/></svg></div>
-            <div class="service-text">
-              <h4>E-Wallet</h4>
-              <p>Consumer and agent wallets that put pay-in and pay-out control in your customers' hands.</p>
-            </div>
-          </div>
-
-          <div class="service-item">
-            <div class="service-icon icon-purple"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><rect x="5" y="9" width="4" height="4" rx="1"/><line x1="1" y1="10" x2="5" y2="10"/><line x1="9" y1="10" x2="9" y2="13"/></svg></div>
-            <div class="service-text">
-              <h4>Prepaid Card Issuance</h4>
-              <p>Issue and manage prepaid cards for consumers and agents worldwide — not just in the US.</p>
-            </div>
-          </div>
-
-          <div class="service-item">
-            <div class="service-icon icon-orange"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
-            <div class="service-text">
-              <h4>Payment Consulting</h4>
-              <p>Our specialists bring decades of global payments experience — helping companies increase revenue, reduce costs, and streamline payment operations.</p>
-            </div>
-          </div>
-
-          <div class="service-item">
-            <div class="service-icon icon-green"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-            <div class="service-text">
-              <h4>Technology Design, Development &amp; Support</h4>
-              <p>Our technology and design team delivers fast, cost-effective solutions built around your unique payment requirements.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="services-image-col">
-        <img src="wp-content/uploads/2018/07/image-8.png" alt="Nomad Services" />
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════ EXPERTISE / WHY NOMAD ════════════════ -->
-  <section id="expertise" class="expertise-section">
-    <div class="container">
-      <div class="expertise-grid">
-
-        <div class="expertise-intro">
-          <h2>Why Nomad?</h2>
-          <div class="heading-bar"></div>
-          <p>Reduce costs, improve efficiency, and gain a competitive edge as you expand globally.</p>
-          <p>Unparalleled flexibility and control over your payment operations — a competitive advantage the industry has never seen before.</p>
-        </div>
-
-        <div class="expertise-card">
-          <div class="expertise-card-inner">
-            <div class="expertise-card-front">
-              <img src="wp-content/uploads/2018/01/qservice-1.jpg" alt="Best Technology" />
-              <div class="expertise-card-front-body">
-                <h3>Best Technology</h3>
-                <p>Cutting-edge technology for paying distributors and collecting funds — at the lowest possible cost.</p>
-              </div>
-            </div>
-            <div class="expertise-card-back">
-              <h3>Best Technology</h3>
-              <p>Cutting-edge technology for paying distributors and collecting funds — at the lowest possible cost.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="expertise-card">
-          <div class="expertise-card-inner">
-            <div class="expertise-card-front">
-              <img src="wp-content/uploads/2018/01/qservice-2.jpg" alt="Control your Funds" />
-              <div class="expertise-card-front-body">
-                <h3>Control your Funds</h3>
-                <p>Real-time visibility and control over your funds. Your money, your rules.</p>
-              </div>
-            </div>
-            <div class="expertise-card-back">
-              <h3>Control your Funds</h3>
-              <p>Real-time visibility and control over your funds. Your money, your rules.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="expertise-card">
-          <div class="expertise-card-inner">
-            <div class="expertise-card-front">
-              <img src="wp-content/uploads/2018/01/qservice-4.jpg" alt="30+ Years Experience" />
-              <div class="expertise-card-front-body">
-                <h3>30+ Years Experience</h3>
-                <p>Nomad's service offering brings 30+ years of payment expertise to your growing business.</p>
-              </div>
-            </div>
-            <div class="expertise-card-back">
-              <h3>30+ Years Experience</h3>
-              <p>Nomad's service offering brings 30+ years of payment expertise to your growing business.</p>
-            </div>
-          </div>
-        </div>
-
+      <div class="hero-stat">
+        <div class="hero-stat-val" style="font-size:18px;letter-spacing:-.5px">FinTech<span>&#10003;</span></div>
+        <div class="hero-stat-label">Deep domain specialty</div>
       </div>
     </div>
-  </section>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="hero-scroll-line"></div>
+    <span>scroll</span>
+  </div>
+</section>
 
-  <!-- ══════════════ PAYMENTS MANAGER ═════════════════════ -->
-  <section id="pm" class="pm-section">
-    <div class="container">
-      <div class="pm-row">
+<!-- ── Marquee ── -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track" id="marquee">
+    <span class="marquee-item"><span class="dot"></span>LLM Fine-Tuning</span>
+    <span class="marquee-item"><span class="dot"></span>RAG Pipelines</span>
+    <span class="marquee-item"><span class="dot"></span>AI Agents</span>
+    <span class="marquee-item"><span class="dot"></span>Vector Databases</span>
+    <span class="marquee-item"><span class="dot"></span>AI Strategy</span>
+    <span class="marquee-item"><span class="dot"></span>Workflow Automation</span>
+    <span class="marquee-item"><span class="dot"></span>FinTech AI</span>
+    <span class="marquee-item"><span class="dot"></span>Document Intelligence</span>
+    <span class="marquee-item"><span class="dot"></span>AI Ops</span>
+    <span class="marquee-item"><span class="dot"></span>Prompt Engineering</span>
+    <span class="marquee-item"><span class="dot"></span>Model Evaluation</span>
+    <span class="marquee-item"><span class="dot"></span>Data Infrastructure</span>
+    <span class="marquee-item"><span class="dot"></span>LLM Fine-Tuning</span>
+    <span class="marquee-item"><span class="dot"></span>RAG Pipelines</span>
+    <span class="marquee-item"><span class="dot"></span>AI Agents</span>
+    <span class="marquee-item"><span class="dot"></span>Vector Databases</span>
+    <span class="marquee-item"><span class="dot"></span>AI Strategy</span>
+    <span class="marquee-item"><span class="dot"></span>Workflow Automation</span>
+    <span class="marquee-item"><span class="dot"></span>FinTech AI</span>
+    <span class="marquee-item"><span class="dot"></span>Document Intelligence</span>
+    <span class="marquee-item"><span class="dot"></span>AI Ops</span>
+    <span class="marquee-item"><span class="dot"></span>Prompt Engineering</span>
+    <span class="marquee-item"><span class="dot"></span>Model Evaluation</span>
+    <span class="marquee-item"><span class="dot"></span>Data Infrastructure</span>
+  </div>
+</div>
 
-        <div class="pm-content">
-          <h2>The Nomad Payments Manager Platform</h2>
-          <div class="pm-features">
+<!-- ── Services ── -->
+<section id="services">
+  <div class="container">
+    <div class="services-header">
+      <div>
+        <div class="section-label">Services</div>
+        <h2 class="section-h">What we build for you</h2>
+      </div>
+      <p class="section-sub" style="margin-bottom:0">End-to-end AI development — from defining the right problem to shipping reliable, production-grade systems.</p>
+    </div>
+    <div class="services-grid">
 
-            <div class="pm-feature">
-              <div class="pm-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
-              <div class="pm-feature-title">Boost your Revenue</div>
+      <div class="service-card fade-up">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="svc-title">AI Strategy &amp; Consulting</div>
+        <div class="svc-desc">Audits, build-vs-buy analysis, and 90-day AI roadmaps that set your investment up for real, measurable ROI — not hype.</div>
+        <div class="svc-pill">Discovery</div>
+      </div>
+
+      <div class="service-card fade-up fade-up-delay-1">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <div class="svc-title">Custom AI/ML Development</div>
+        <div class="svc-desc">Fine-tuned LLMs, RAG pipelines, AI agents, and custom model training tailored to your domain, data, and business rules.</div>
+        <div class="svc-pill">Core Build</div>
+      </div>
+
+      <div class="service-card fade-up fade-up-delay-2">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </div>
+        <div class="svc-title">AI-Powered Product Development</div>
+        <div class="svc-desc">Full-stack applications with embedded AI — chatbots, document intelligence, recommendation engines, and workflow automation tools.</div>
+        <div class="svc-pill">Product</div>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <div class="svc-title">AI Integration &amp; Automation</div>
+        <div class="svc-desc">Connect AI APIs into your existing systems and automate manual workflows — from CRM enrichment to back-office operations at scale.</div>
+        <div class="svc-pill">Integration</div>
+      </div>
+
+      <div class="service-card fade-up fade-up-delay-1">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <div class="svc-title">Data Infrastructure for AI</div>
+        <div class="svc-desc">Pipelines, vector databases, labeling systems, and evaluation frameworks that ensure your AI is grounded in quality, structured data.</div>
+        <div class="svc-pill">Infrastructure</div>
+      </div>
+
+      <div class="service-card fade-up fade-up-delay-2">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div class="svc-title">AI Ops &amp; Ongoing Support</div>
+        <div class="svc-desc">Monitoring, model evaluation, continuous fine-tuning, and performance optimization — we stay engaged long after launch.</div>
+        <div class="svc-pill">Ongoing</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Process ── -->
+<section id="process">
+  <div class="container">
+    <div class="process-layout">
+      <div>
+        <div class="section-label fade-up">How We Work</div>
+        <h2 class="section-h fade-up">A process built for real outcomes</h2>
+        <p class="section-sub fade-up" style="margin-bottom:2.5rem">We move fast without cutting corners — most clients see a working prototype within 3 weeks of kicking off.</p>
+        <div class="process-steps">
+          <div class="process-step fade-up">
+            <div class="step-num">01</div>
+            <div>
+              <div class="step-body-title">Discovery &amp; scoping</div>
+              <div class="step-body-desc">We audit your data, workflows, and goals to define what AI can realistically achieve — and where it shouldn't be applied.</div>
             </div>
-
-            <div class="pm-feature">
-              <div class="pm-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
-              <div class="pm-feature-title">Manage your 150+ Payment Methods</div>
+          </div>
+          <div class="process-step fade-up fade-up-delay-1">
+            <div class="step-num">02</div>
+            <div>
+              <div class="step-body-title">Prototype &amp; validate</div>
+              <div class="step-body-desc">Fast proof-of-concept builds to test assumptions before committing to full development. You see results in weeks, not quarters.</div>
             </div>
-
-            <div class="pm-feature">
-              <div class="pm-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><rect x="5" y="9" width="4" height="4" rx="1"/></svg></div>
-              <div class="pm-feature-title">Domestic &amp; International Prepaid Card Issuance</div>
+          </div>
+          <div class="process-step fade-up fade-up-delay-2">
+            <div class="step-num">03</div>
+            <div>
+              <div class="step-body-title">Build &amp; integrate</div>
+              <div class="step-body-desc">Production-grade development with full transparency — your team is involved, informed, and in control throughout.</div>
             </div>
-
-            <div class="pm-feature">
-              <div class="pm-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-              <div class="pm-feature-title">PCI DSS Compliance</div>
+          </div>
+          <div class="process-step fade-up fade-up-delay-3">
+            <div class="step-num">04</div>
+            <div>
+              <div class="step-body-title">Deploy &amp; optimize</div>
+              <div class="step-body-desc">We manage the launch and stay engaged — monitoring performance, running eval cycles, and iterating as your needs evolve.</div>
             </div>
-
-            <div class="pm-feature">
-              <div class="pm-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-              <div class="pm-feature-title">Flexible Reporting</div>
-            </div>
-
-            <div class="pm-feature">
-              <div class="pm-feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-              <div class="pm-feature-title">Truly Global</div>
-            </div>
-
           </div>
         </div>
-
-        <div class="pm-image">
-          <img src="wp-content/uploads/2021/07/bg-laptop-Nomad-1.png" alt="Payments Manager Platform" />
-        </div>
-
       </div>
-    </div>
-  </section>
-
-  <!-- ══════════════ FOOTER ════════════════════════════════ -->
-  <footer class="site-footer" id="footer-contact">
-    <div class="container">
-      <div class="footer-widgets">
-
-        <div class="footer-widget">
-          <h3>Contact Us</h3>
-          <a href="#contact" class="footer-contact-btn">Get in Touch</a>
+      <div class="process-visual fade-up fade-up-delay-1">
+        <div class="pv-title">Typical engagement timeline</div>
+        <div class="pv-timeline">
+          <div class="pv-week">
+            <div class="pv-week-label">Week 1–2</div>
+            <div class="pv-week-bar-wrap"><div class="pv-week-bar active" style="width:30%"></div></div>
+            <span style="font-size:11px;color:var(--g400);min-width:70px">Discovery</span>
+          </div>
+          <div class="pv-week">
+            <div class="pv-week-label">Week 3–4</div>
+            <div class="pv-week-bar-wrap"><div class="pv-week-bar active" style="width:50%"></div></div>
+            <span style="font-size:11px;color:var(--g400);min-width:70px">Prototype</span>
+          </div>
+          <div class="pv-week">
+            <div class="pv-week-label">Week 5–10</div>
+            <div class="pv-week-bar-wrap"><div class="pv-week-bar" style="width:85%"></div></div>
+            <span style="font-size:11px;color:var(--tt);min-width:70px">Build</span>
+          </div>
+          <div class="pv-week">
+            <div class="pv-week-label">Week 11–12</div>
+            <div class="pv-week-bar-wrap"><div class="pv-week-bar" style="width:100%"></div></div>
+            <span style="font-size:11px;color:var(--tt);min-width:70px">Deploy</span>
+          </div>
+          <div class="pv-week">
+            <div class="pv-week-label">Ongoing</div>
+            <div class="pv-week-bar-wrap"><div class="pv-week-bar" style="width:60%;background:var(--g800)"></div></div>
+            <span style="font-size:11px;color:var(--tt);min-width:70px">Ops &amp; Iterate</span>
+          </div>
         </div>
-
-        <div class="footer-widget">
-          <h3>Newsletter</h3>
-          <form class="newsletter-form" id="newsletterForm">
-            <p>Stay up to date with the latest from Nomad</p>
-            <input type="email" id="nlEmail" name="email" placeholder="Enter E-Mail Address" required />
-            <input type="hidden" name="source" value="newsletter" />
-            <button type="submit" id="nlBtn">Subscribe</button>
-            <div id="nl-status" style="display:none; margin-top:8px; font-size:13px; border-radius:4px; padding:8px 12px;"></div>
-          </form>
-        </div>
-
-        <div class="footer-widget"></div>
-
-        <div class="footer-widget">
-          <h3>Company</h3>
-          <ul>
-            <li>
-              <a href="privacy-policy.html?v=2"
-                 target="_blank" rel="noopener">Privacy Policy</a>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="footer-bottom">
-        <div class="footer-copyright">
-          Copyright &copy; 2020&ndash;2026 NOMADCTS LLC. All Rights Reserved.
-        </div>
-        <div class="footer-socials">
-          <a href="#" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
-          <a href="#" aria-label="YouTube"><i class="fa fa-youtube"></i></a>
+        <div class="pv-note">Most clients see a working, testable prototype within <strong style="color:var(--g400);font-weight:500">3 weeks</strong> of project kickoff — before any major budget commitment.</div>
+        <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:.6rem">
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--tt);padding:8px 12px;background:var(--s3);border-radius:var(--r-sm)">
+            <span>Advisory engagement</span><span style="color:var(--g400)">From $5k</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--tt);padding:8px 12px;background:var(--s3);border-radius:var(--r-sm)">
+            <span>Project build</span><span style="color:var(--g400)">From $25k</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--tt);padding:8px 12px;background:var(--s3);border-radius:var(--r-sm)">
+            <span>Retainer / AI Ops</span><span style="color:var(--g400)">From $4k/mo</span>
+          </div>
         </div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- ══════════════ CONTACT POPUP ═════════════════════════ -->
-  <div class="popup-overlay" id="contactPopup">
-    <div class="popup-box">
-      <h3>Contact Nomad CTS</h3>
-      <form id="contactForm" action="https://formspree.io/f/mojpbaqz" method="POST">
-        <div class="form-field">
-          <label for="cf-name">Company or Name <span style="color:#e00">*</span></label>
-          <input type="text" id="cf-name" name="name" required>
+<!-- ── Industries ── -->
+<section id="industries">
+  <div class="container">
+    <div class="section-label fade-up">Industries</div>
+    <h2 class="section-h fade-up">We speak your domain's language</h2>
+    <p class="section-sub fade-up">AI that works in theory is easy. AI that works within your industry's constraints, regulations, and data realities — that's what we build.</p>
+    <div class="industries-grid">
+
+      <div class="ind-card fade-up">
+        <div class="ind-icon" style="background:rgba(29,158,117,0.1)">
+          <svg style="stroke:var(--g400)" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
         </div>
-        <div class="form-field">
-          <label for="cf-email">Email Address <span style="color:#e00">*</span></label>
-          <input type="email" id="cf-email" name="email" required>
+        <div>
+          <div class="ind-title">Financial Services &amp; Payments</div>
+          <div class="ind-desc">Fraud detection, transaction intelligence, automated compliance, and AI-assisted underwriting. Our home turf — 30+ years deep.</div>
         </div>
-        <div class="form-field">
-          <label for="cf-phone">Phone Number (optional)</label>
-          <input type="text" id="cf-phone" name="phone">
+      </div>
+
+      <div class="ind-card fade-up fade-up-delay-1">
+        <div class="ind-icon" style="background:rgba(110,212,184,0.1)">
+          <svg style="stroke:var(--g300)" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         </div>
-        <div class="form-field">
-          <label for="cf-msg">Message <span style="color:#e00">*</span></label>
-          <textarea id="cf-msg" name="message" required></textarea>
+        <div>
+          <div class="ind-title">Healthcare &amp; Clinical Workflows</div>
+          <div class="ind-desc">Clinical documentation AI, patient data analysis, care coordination tools, and HIPAA-compliant AI assistants for providers.</div>
         </div>
-        <div id="form-status" style="display:none; margin-top:12px; padding:12px 16px; border-radius:4px; font-size:15px;"></div>
-        <button type="submit" class="form-submit" id="form-submit-btn">Send Message</button>
+      </div>
+
+      <div class="ind-card fade-up">
+        <div class="ind-icon" style="background:rgba(239,159,39,0.1)">
+          <svg style="stroke:#EF9F27" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div>
+          <div class="ind-title">Legal &amp; Compliance Automation</div>
+          <div class="ind-desc">Contract analysis, regulatory compliance monitoring, document review acceleration, and policy Q&amp;A systems for legal teams.</div>
+        </div>
+      </div>
+
+      <div class="ind-card fade-up fade-up-delay-1">
+        <div class="ind-icon" style="background:rgba(135,138,221,0.1)">
+          <svg style="stroke:#8F92E0" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </div>
+        <div>
+          <div class="ind-title">E-Commerce &amp; Retail</div>
+          <div class="ind-desc">Personalized recommendation engines, demand forecasting, AI-driven merchandising, and intelligent customer support automation.</div>
+        </div>
+      </div>
+
+      <div class="ind-card fade-up">
+        <div class="ind-icon" style="background:rgba(85,170,255,0.1)">
+          <svg style="stroke:#55AAFF" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <div class="ind-title">Enterprise Operations</div>
+          <div class="ind-desc">Internal knowledge bases, HR automation, intelligent reporting, supply chain AI, and enterprise-wide workflow orchestration.</div>
+        </div>
+      </div>
+
+      <div class="ind-card fade-up fade-up-delay-1">
+        <div class="ind-icon" style="background:rgba(255,120,100,0.1)">
+          <svg style="stroke:#FF7864" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div>
+          <div class="ind-title">Startups &amp; AI-Native Products</div>
+          <div class="ind-desc">Technical co-builder for AI-first startups — from MVP to scale. We bring the AI engineering so your team can focus on the product.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Tech Stack ── -->
+<section id="tech">
+  <div class="container">
+    <div class="tech-layout">
+      <div>
+        <div class="section-label fade-up">Tech Stack</div>
+        <h2 class="section-h fade-up">Model-agnostic.<br>Stack-agnostic.</h2>
+        <p class="section-sub fade-up" style="margin-bottom:1.5rem">We pick the right tool for your problem — not the one we're paid to push. Our team works across all major AI providers and infrastructure platforms.</p>
+        <a href="#contact" class="btn btn-primary fade-up">Discuss your stack &rarr;</a>
+      </div>
+      <div class="tech-categories fade-up fade-up-delay-1">
+        <div>
+          <div class="tech-cat-title">AI Models &amp; APIs</div>
+          <div class="tech-chips">
+            <span class="chip">Anthropic Claude</span>
+            <span class="chip">OpenAI GPT-4o</span>
+            <span class="chip">Google Gemini</span>
+            <span class="chip">Meta Llama 3</span>
+            <span class="chip">Mistral</span>
+            <span class="chip">Cohere</span>
+          </div>
+        </div>
+        <div>
+          <div class="tech-cat-title">Frameworks &amp; Orchestration</div>
+          <div class="tech-chips">
+            <span class="chip">LangChain</span>
+            <span class="chip">LlamaIndex</span>
+            <span class="chip">LangGraph</span>
+            <span class="chip">Haystack</span>
+            <span class="chip">AutoGen</span>
+            <span class="chip">CrewAI</span>
+          </div>
+        </div>
+        <div>
+          <div class="tech-cat-title">Vector &amp; Data Infrastructure</div>
+          <div class="tech-chips">
+            <span class="chip">Pinecone</span>
+            <span class="chip">Weaviate</span>
+            <span class="chip">pgvector</span>
+            <span class="chip">Qdrant</span>
+            <span class="chip">Redis</span>
+            <span class="chip">Snowflake</span>
+          </div>
+        </div>
+        <div>
+          <div class="tech-cat-title">Cloud &amp; MLOps</div>
+          <div class="tech-chips">
+            <span class="chip">AWS SageMaker</span>
+            <span class="chip">Google Vertex AI</span>
+            <span class="chip">Azure OpenAI</span>
+            <span class="chip">Hugging Face</span>
+            <span class="chip">MLflow</span>
+            <span class="chip">Weights &amp; Biases</span>
+          </div>
+        </div>
+        <div>
+          <div class="tech-cat-title">Application Layer</div>
+          <div class="tech-chips">
+            <span class="chip">Python</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">Next.js</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">Docker</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── About ── -->
+<section id="about">
+  <div class="container">
+    <div class="about-layout">
+      <div class="about-copy">
+        <div class="section-label fade-up">About</div>
+        <h2 class="section-h fade-up">Practitioners, not consultants.</h2>
+        <p class="fade-up">AbundanceTech was built by technologists who have spent decades in the trenches — building payment systems, financial platforms, and enterprise software for clients around the world.</p>
+        <p class="fade-up fade-up-delay-1">When AI matured from research toy to business multiplier, we made the pivot — bringing the same engineering rigor, domain depth, and client-first approach to AI development.</p>
+        <p class="fade-up fade-up-delay-1">We don't sell strategy decks and disappear. We embed, build, and stay accountable to outcomes.</p>
+        <a href="#contact" class="btn btn-ghost fade-up fade-up-delay-2" style="margin-top:.5rem">Meet the team &rarr;</a>
+        <div class="about-metrics fade-up fade-up-delay-2">
+          <div class="about-metric">
+            <div class="about-metric-val">30<span>+</span></div>
+            <div class="about-metric-label">Years building technology</div>
+          </div>
+          <div class="about-metric">
+            <div class="about-metric-val">3<span>wk</span></div>
+            <div class="about-metric-label">Avg time to prototype</div>
+          </div>
+          <div class="about-metric">
+            <div class="about-metric-val">6</div>
+            <div class="about-metric-label">AI service specialties</div>
+          </div>
+          <div class="about-metric">
+            <div class="about-metric-val">US<span>+</span></div>
+            <div class="about-metric-label">Global delivery capability</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual fade-up fade-up-delay-1">
+        <div class="about-card">
+          <div class="about-card-header">
+            <div class="about-card-dot"></div>
+            <div class="about-card-title">What makes us different</div>
+          </div>
+          <div class="about-list">
+            <div class="about-list-item">We build, we don't just advise</div>
+            <div class="about-list-item">Deep FinTech domain expertise</div>
+            <div class="about-list-item">Model-agnostic — we pick what's best for you</div>
+            <div class="about-list-item">Transparent process, no black boxes</div>
+            <div class="about-list-item">Rapid prototyping before big commitments</div>
+            <div class="about-list-item">Ongoing support and iteration built in</div>
+            <div class="about-list-item">You own all IP and code from day one</div>
+          </div>
+          <div class="fintech-badge">
+            <div class="fintech-badge-title">FinTech Advantage</div>
+            <div class="fintech-badge-text">With 30+ years in global payments and financial services, we bring domain knowledge most AI dev shops simply don't have — meaning faster time-to-value and fewer surprises when building AI in regulated industries.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section id="cta" style="padding:0 var(--px) clamp(4rem,8vw,7rem)">
+  <div class="container" style="padding:0">
+    <div class="cta-box">
+      <div class="cta-copy">
+        <h2>Ready to build your AI advantage?</h2>
+        <p>Book a free 30-minute discovery call. We'll assess your opportunity, tell you what's actually possible, and give you a clear next step — no obligation.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#contact" class="btn btn-white">Book a discovery call &rarr;</a>
+        <div class="cta-note">Free 30-min call &nbsp;·&nbsp; No commitment</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ── -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-layout">
+      <div>
+        <div class="section-label fade-up">Contact</div>
+        <h2 class="section-h fade-up">Let's talk about your project</h2>
+        <p class="fade-up">Whether you have a specific project in mind or just want to understand what AI could do for your business, we're happy to have the conversation.</p>
+        <div style="margin-top:2rem;display:flex;flex-direction:column;gap:.6rem" class="fade-up fade-up-delay-1">
+          <div class="contact-detail">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            hello@abundancetech.com
+          </div>
+          <div class="contact-detail">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Ojai, CA &nbsp;·&nbsp; Available globally
+          </div>
+          <div class="contact-detail">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Usually responds within 1 business day
+          </div>
+        </div>
+      </div>
+      <form class="contact-form fade-up fade-up-delay-1" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="fname">First name</label>
+            <input class="form-input" id="fname" type="text" placeholder="Jane" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="lname">Last name</label>
+            <input class="form-input" id="lname" type="text" placeholder="Smith" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" id="email" type="email" placeholder="jane@company.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="company">Company</label>
+          <input class="form-input" id="company" type="text" placeholder="Acme Corp" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="service">What are you interested in?</label>
+          <select class="form-input" id="service">
+            <option value="">Select a service...</option>
+            <option>AI Strategy &amp; Consulting</option>
+            <option>Custom AI/ML Development</option>
+            <option>AI-Powered Product Development</option>
+            <option>AI Integration &amp; Automation</option>
+            <option>Data Infrastructure for AI</option>
+            <option>AI Ops &amp; Ongoing Support</option>
+            <option>Not sure yet — let's talk</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Tell us about your project</label>
+          <textarea class="form-textarea" id="message" placeholder="What are you trying to build or automate? Any context about your data, timeline, or budget is helpful."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit" id="submitBtn">Send message &rarr;</button>
+        <div id="formSuccess" style="display:none;padding:12px 16px;background:rgba(29,158,117,0.1);border:.5px solid rgba(29,158,117,0.25);border-radius:var(--r-md);font-size:13px;color:var(--g300)">
+          ✓ Message sent! We'll be in touch within 1 business day.
+        </div>
       </form>
     </div>
   </div>
+</section>
 
-  <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    // ── Hero slider ────────────────────────────────────
-    var cur = 0;
-    var slides = document.querySelectorAll('.hero-slide');
-    var dots   = document.querySelectorAll('.slider-dot');
-    var timer;
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo">abundance<span>tech</span></div>
+        <p>We help businesses design, build, and scale custom AI systems that drive real, measurable outcomes.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <a href="#services">AI Strategy</a>
+          <a href="#services">Custom AI/ML</a>
+          <a href="#services">Product Development</a>
+          <a href="#services">Integration</a>
+          <a href="#services">Data Infrastructure</a>
+          <a href="#services">AI Ops</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#industries">Industries</a>
+          <a href="#tech">Tech Stack</a>
+          <a href="#process">How We Work</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Get in touch</div>
+        <div class="footer-links">
+          <a href="mailto:hello@abundancetech.com">hello@abundancetech.com</a>
+          <a href="#contact">Book a discovery call</a>
+        </div>
+        <div style="margin-top:1.25rem">
+          <a href="#contact" class="btn btn-primary" style="padding:10px 18px;font-size:13px">Start a project &rarr;</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 AbundanceTech LLC. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
-    function goSlide(n) {
-      slides[cur].classList.remove('active');
-      dots[cur].classList.remove('active');
-      cur = (n + slides.length) % slides.length;
-      slides[cur].classList.add('active');
-      dots[cur].classList.add('active');
-      var bg = slides[cur].querySelector('.hero-slide-bg');
-      bg.style.animation = 'none';
-      bg.offsetHeight;
-      bg.style.animation = '';
-      clearInterval(timer);
-      timer = setInterval(function(){ goSlide(cur + 1); }, 9000);
-    }
-    timer = setInterval(function(){ goSlide(cur + 1); }, 9000);
+<script>
+// Navbar scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)
+})
 
-    // ── Mobile nav ─────────────────────────────────────
-    document.getElementById('navToggle').addEventListener('click', function() {
-      document.getElementById('mainNav').classList.toggle('open');
-    });
+// Mobile menu
+const ham=document.getElementById('hamburger')
+const menu=document.getElementById('mobileMenu')
+ham.addEventListener('click',()=>{
+  menu.classList.toggle('open')
+  const spans=ham.querySelectorAll('span')
+  if(menu.classList.contains('open')){
+    spans[0].style.transform='rotate(45deg) translate(5px,5px)'
+    spans[1].style.opacity='0'
+    spans[2].style.transform='rotate(-45deg) translate(5px,-5px)'
+  } else {
+    spans.forEach(s=>{s.style.transform='';s.style.opacity=''})
+  }
+})
+document.querySelectorAll('.mobile-link,.mobile-menu .btn').forEach(a=>{
+  a.addEventListener('click',()=>{
+    menu.classList.remove('open')
+    ham.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity=''})
+  })
+})
 
-    // ── Contact popup ──────────────────────────────────
-    document.querySelectorAll('a[href="#contact"]').forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('contactPopup').classList.add('open');
-      });
-    });
-    function closePopup() {
-      document.getElementById('contactPopup').classList.remove('open');
-    }
-    document.getElementById('contactPopup').addEventListener('click', function(e) {
-      if (e.target === this) closePopup();
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closePopup();
-    });
+// Scroll animations
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})
+},{threshold:0.12})
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el))
 
-    // ── Newsletter ─────────────────────────────────────
-    document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      var btn    = document.getElementById('nlBtn');
-      var status = document.getElementById('nl-status');
-      var email  = document.getElementById('nlEmail').value.trim();
-      if (!email) return;
+// Contact form
+function handleSubmit(e){
+  e.preventDefault()
+  const btn=document.getElementById('submitBtn')
+  btn.textContent='Sending...'
+  btn.disabled=true
+  setTimeout(()=>{
+    btn.style.display='none'
+    document.getElementById('formSuccess').style.display='block'
+  },900)
+}
 
-      btn.disabled = true;
-      btn.textContent = 'Subscribing…';
-
-      try {
-        var response = await fetch('https://formspree.io/f/mojpbaqz', {
-          method: 'POST',
-          body: new FormData(this),
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          status.style.cssText = 'display:block;background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;';
-          status.textContent = 'Thanks! You’re subscribed.';
-          this.reset();
-          btn.textContent = 'Subscribed!';
-        } else {
-          throw new Error('failed');
-        }
-      } catch(err) {
-        status.style.cssText = 'display:block;background:#ffebee;color:#c62828;border:1px solid #ef9a9a;';
-        status.textContent = 'Something went wrong. Please try again.';
-        btn.textContent = 'Subscribe';
-        btn.disabled = false;
-      }
-    });
-
-    // ── Contact form — async Formspree submission ───────
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      var btn    = document.getElementById('form-submit-btn');
-      var status = document.getElementById('form-status');
-      btn.disabled = true;
-      btn.textContent = 'Sending\u2026';
-      status.style.display = 'none';
-
-      try {
-        var response = await fetch('https://formspree.io/f/mojpbaqz', {
-          method: 'POST',
-          body: new FormData(this),
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          status.style.cssText = 'display:block;margin-top:12px;padding:12px 16px;border-radius:4px;font-size:15px;background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;';
-          status.textContent = 'Thank you! Your message has been sent. We\u2019ll be in touch shortly.';
-          this.reset();
-          btn.textContent = 'Message Sent!';
-          setTimeout(function() { closePopup(); }, 3000);
-        } else {
-          throw new Error('failed');
-        }
-      } catch(err) {
-        status.style.cssText = 'display:block;margin-top:12px;padding:12px 16px;border-radius:4px;font-size:15px;background:#ffebee;color:#c62828;border:1px solid #ef9a9a;';
-        status.textContent = 'Sorry, something went wrong. Please email us at info@nomadcts.com';
-        btn.textContent = 'Send Message';
-        btn.disabled = false;
-      }
-    });
-  }); // end DOMContentLoaded
-  </script>
-
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const target=document.querySelector(a.getAttribute('href'))
+    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}
+  })
+})
+</script>
 </body>
 </html>
